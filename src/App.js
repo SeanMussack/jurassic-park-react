@@ -19,6 +19,8 @@ function App() {
         >
           Learn React
         </a>
+        <i class="far fa-address-book"></i>
+        <i class="fab fa-github"></i>
       </header>
     </div>
   );
