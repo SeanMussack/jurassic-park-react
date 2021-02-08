@@ -2,6 +2,51 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 
+function RenderHeaderLink({page}) {
+    return (
+        <Link className="dropdown-item" to={page.link}><i className={page.icon} aria-hidden="true"></i>{page.name}</Link>
+    );
+}
+function RenderHeaderSubcategory({pageCategory, subcategory}) {
+    var title = pageCategory.subcategory0;
+    if (subcategory === 1) {
+        title = pageCategory.subcategory1;
+    }
+    return (
+        <div className="col-md">
+            <h4 className="d-none d-md-block">
+                {title}
+            </h4>
+            {PAGES.filter(page => page.category === pageCategory.id && page.subcategory === subcategory).map(page => {
+                return (
+                    <RenderHeaderLink page={page} />
+                );
+            })}
+        </div>
+    );
+}
+function RenderFeatured({featured}) {
+    return (
+        <div className="navbar-imgcard col-md-5 col-lg-6 d-none d-lg-block">
+            <div className="media">
+                <img className="d-flex" src={featured.image} alt={featured.alt} />
+                <div className="media-body align-self-center">
+                    <h5><Link to={featured.link}>{featured.title}</Link></h5>
+                    <p>{featured.text}</p>
+                    <div className="d-flex justify-content-end">
+                        <a className="btn btn-danger" href={featured.link}>{featured.buttonText}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+function RenderHeaderCategory({pageCategory}) {
+    return (
+        <div></div>
+    );
+}
+
 class Header extends Component {
     constructor(props) {
         super(props);
