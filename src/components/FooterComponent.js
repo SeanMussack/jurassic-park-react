@@ -10,7 +10,7 @@ function Footer(props) {
                         <div>
                             <h5>Park Info</h5>
                             <ul className="list-unstyled">
-                                <li><Link to='./calendar' className="text-nowrap">Calendar & Hours</Link></li>
+                                <li><Link to='./calendar-and-hours' className="text-nowrap">Calendar & Hours</Link></li>
                                 <li><Link to='./park-map'>Park Map</Link></li>
                                 <li><Link to='./getting-here'>Getting Here</Link></li>
                                 <li><Link to='./accessibility'>Accessibility</Link></li>
