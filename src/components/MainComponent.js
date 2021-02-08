@@ -14,14 +14,14 @@ class Main extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Header />
                 <Switch>
                     <Route path='/home' render={() => <Home/>} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
-            </div>
+            </React.Fragment>
         );
     }
 }

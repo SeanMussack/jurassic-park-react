@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'typeface-montserrat';
+import 'typeface-open-sans';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'bootstrap-social/bootstrap-social.css';
 import App from './App';
