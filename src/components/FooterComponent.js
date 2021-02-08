@@ -1,58 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PAGES } from "../shared/pages";
+import { PAGECATEGORIES } from "../shared/pageCategories";
+
+function RenderFooterLink({page}) {
+    var nowrapClassName = null;
+    if (page.nowrap) {
+        nowrapClassName = "text-nowrap";
+    }
+    return (
+        <li><Link to={page.link} className={nowrapClassName}>{page.name}</Link></li>
+    );
+}
+
+function RenderFooterColumn({pageCategory}) {
+    var colClassName = "col-6 col-md-3 col-lg-2 d-flex";
+    if (pageCategory.id === 0) {
+        colClassName = colClassName + " offset-lg-1";
+    }
+    var nowrapClassName = null;
+    if (pageCategory.nowrap) {
+        nowrapClassName = "text-nowrap";
+    }
+
+    return (
+        <div className={colClassName}>
+            <div>
+                <h5 className={nowrapClassName}>{pageCategory.name}</h5>
+                <ul className="list-unstyled">
+                    {PAGES.filter(page => page.category === pageCategory.id).map(page => {
+                        return (
+                            <RenderFooterLink page={page} />
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
+    );
+}
 
 function Footer(props) {
     return (
         <footer className="site-footer">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-6 col-md-3 col-lg-2 offset-lg-1 d-flex">
-                        <div>
-                            <h5>Park Info</h5>
-                            <ul className="list-unstyled">
-                                <li><Link to='./calendar-and-hours' className="text-nowrap">Calendar & Hours</Link></li>
-                                <li><Link to='./park-map'>Park Map</Link></li>
-                                <li><Link to='./getting-here'>Getting Here</Link></li>
-                                <li><Link to='./accessibility'>Accessibility</Link></li>
-                                <li><Link to='./jobs.'>Jobs</Link></li>
-                                <li><Link to='./faq'>FAQ</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3 col-lg-2 d-flex ">
-                        <div>
-                            <h5 className="text-nowrap">Things To Do</h5>
-                            <ul className="list-unstyled">
-                                <li><Link to='./island-tour'>Island Tour</Link></li>
-                                <li><Link to='./laboratory'>Laboratory</Link></li>
-                                <li><Link to='./showcase-theater'>Showcase Theater</Link></li>
-                                <li><Link to='./cafe'>Cretaceous Cafe</Link></li>
-                                <li><Link to='./gift-shop'>Gift Shop</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3 col-lg-2 d-flex ">
-                        <div>
-                            <h5 className="text-nowrap">Things To See</h5>
-                            <ul className="list-unstyled">
-                                <li><Link to='./dinosaurs'>Dinosaurs</Link></li>
-                                <li><Link to='./visitor-center'>Visitor Center</Link></li>
-                                <li><Link to='./gate' >Park Gate</Link></li>
-                                <li><Link to='./waterfalls'>Waterfalls</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-6 col-md-3 col-lg-2 d-flex ">
-                        <div>
-                            <h5>Tickets <span className="text-nowrap">& Passes</span></h5>
-                            <ul className="list-unstyled">
-                                <li><Link to='./tickets' >Tickets</Link></li>
-                                <li><Link to='./season-passes' ><span className="text-nowrap">Season Passes</span></Link></li>
-                                <li><Link to='./groups'>Groups</Link></li>
-                                <li><Link to='./birthday-parties' className=""><span className="text-nowrap">Birthday Parties</span></Link></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {PAGECATEGORIES.map(pageCategory => {
+                        return (
+                            <RenderFooterColumn pageCategory={pageCategory} />
+                        );
+                    })}
                     <div className="stay-connected col-12 col-md-4 col-lg-2 d-flex ">
                         <div className="text-center">
                             <h5 className="text-nowrap">Stay Connected</h5>
