@@ -26,7 +26,7 @@ function RenderFooterColumn({pageCategory}) {
     return (
         <div className={colClassName}>
             <div>
-                <h5 className={nowrapClassName}>{pageCategory.name}</h5>
+                <h5 className={nowrapClassName}>{pageCategory.name}{pageCategory.nameOnlyMdAndUp}</h5>
                 <ul className="list-unstyled">
                     {PAGES.filter(page => page.category === pageCategory.id).map(page => {
                         return (

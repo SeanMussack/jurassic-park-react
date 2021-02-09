@@ -22,9 +22,10 @@ export const PAGECATEGORIES = [
     },
     {
         id: 3,
-        name: "Tickets & Passes",
+        name: "Tickets",
+        nameOnlyMdAndUp: " & Passes",
         nowrap: false,
         subcategory0: "Admission",
-        subcategory1: "Events"
+        subcategory1: "Events",
     }
 ]

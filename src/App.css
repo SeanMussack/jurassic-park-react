@@ -81,6 +81,9 @@ header {
 .navbar {
   padding-top: 0px;
 }
+.navbar .navbar-collapse {
+  background-color: black;
+}
 .nav-brand {
   padding: 0px, 0px, 20px, 20px;
 }
@@ -89,14 +92,24 @@ header {
       min-width: max-content;
   }
 }
-.nav-link {
+.dropdown-toggle {
   text-transform: uppercase;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: justify;
+  color: gray;
+  background-color: black;
+  border: none;
 }
-.nav-link:hover {
+/*
+.dropdown-toggle:hover {
   background-color: rgb(18,18,18);
+  border: none;
 }
+.btn-secondary.dropdown-toggle:focus-within {
+  background-color: rgb(18,18,18);
+  border: none;
+}
+*/
 .dropdown {
   position: initial;
 }
