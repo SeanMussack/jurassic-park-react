@@ -1,17 +1,13 @@
 import React from 'react';
 import CarouselXL from "./CarouselXLComponent";
+import Quote from './QuoteComponent';
+import { QUOTES } from '../shared/quotes';
 
 function Home(props) {
     return (
         <div id="mainContent">
             <CarouselXL />
-            <div className="container">
-                <div className="row">
-                    <div className="col-md m-1">Test A</div>
-                    <div className="col-md m-1">Test B</div>
-                    <div className="col-md m-1">Test C</div>
-                </div>
-            </div>
+            <Quote quote={QUOTES[0]} />
         </div>
     );
 }
