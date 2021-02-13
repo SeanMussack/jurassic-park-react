@@ -362,16 +362,16 @@ h4 {
 .infoAccordion .card-body {
   padding-bottom: 0px;
 }
-.infoAccordion .fa-plus, .infoAccordion .fa-minus {
+.card .fa-plus, .infoAccordion .fa-minus {
   position: absolute;
-  right: 9px;
+  right: 6px;
+  top: 12px;
+}
+/*.infoAccordion .fa-plus-square, .infoAccordion .fa-minus-square {
+  position: absolute;
+  right: 6px;
   top: 13px;
-}
-.infoAccordion .fa-plus-square-o, .infoAccordion .fa-minus-square-o {
-  position: absolute;
-  right: 7px;
-  top: 14px;
-}
+}*/
 #dinosaursAccordion .card {
   position: relative;
   left: 10px;
@@ -387,8 +387,6 @@ h4 {
 }
 .dino-icon {
   position: absolute;
-  top: 9px;
-  left: 7px;
 }
 #dinosaursAccordion h3 {
   padding-left: 60px;
@@ -431,9 +429,6 @@ h4 {
 }
 .dino-info-column p, .dino-info-column h5 {
   margin-bottom: 3px;
-}
-.dino-info-column h5 {
-  font-weight: bold;
 }
 .dino-info-column p {
   font-style: italic;

@@ -1,28 +1,95 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Collapse, Card, CardBody, CardHeader } from 'reactstrap';
+import { Collapse, Card, CardBody, CardHeader, CardText } from 'reactstrap';
 
-function RenderDinosaurCard({dinosaur}) {
+function capitalize(string) {
     return (
-        <div/>
+        string.charAt(0).toUpperCase() + string.slice(1)
     );
 }
-function RenderDinosaursAccordion({dinosaurs}) {
-    return (
-        <div/>
-    );
+
+class RenderDinosaurCard extends Component {
+    constructor(props) {
+        super(props);
+        this.props = {
+            dinosaur: null,
+        }
+        this.state = {
+            isCardOpen: false
+        }
+        this.toggleCard = this.toggleCard.bind(this);
+    }
+
+    toggleCard() {
+        this.setState({
+            isCardOpen: !this.state.isCardOpen
+        })
+    }
+    
+    render() {
+        return (
+            <Card className={this.props.dinosaur.diet + " bg-light"} key={this.props.dinosaur.key}>
+                <CardHeader onClick={this.toggleCard} className="p-2">
+                    <img className="dino-icon my-auto" src={this.props.dinosaur.icon} aria-hidden="true"/>
+                    <h3 className="my-auto">
+                        {this.props.dinosaur.name}
+                        <i className={(this.state.isCardOpen ? "fa fa-minus" : "fa fa-plus") + " d-none d-sm-block"} aria-hidden="true"></i>
+                    </h3>
+                </CardHeader>
+                <Collapse isOpen={this.state.isCardOpen}>
+                    <CardBody onClick={this.toggleCard} className="p-0 row align-items-center">
+                        <img className="dino-image d-flex col-12 col-md mx-auto" src={this.props.dinosaur.image}/>
+                        <CardText className="col-12 col-md my-auto mx-lg-5">
+                            {this.props.dinosaur.text}
+                        </CardText>
+                        <div class="dino-info-column col-12 col-md col-lg-3">
+                            <h5>Diet:</h5>
+                            <p>{capitalize(this.props.dinosaur.diet)}</p>
+                            <h5>Name Meaning:</h5>
+                            <p>"{this.props.dinosaur.nameMeaning}"</p>
+                            <h5>Region:</h5>
+                            <p>{this.props.dinosaur.region}</p>
+                            <h5>Epoch:</h5>
+                            <p>{this.props.dinosaur.epoch}</p>
+                        </div>
+                    </CardBody>
+                </Collapse>
+            </Card>
+        );
+    }
+}
+
+class RenderDinosaursAccordion extends Component {
+    constructor(props) {
+        super(props);
+        this.props = {
+            dinosaurs: null
+        }
+        this.state = {
+            openCard: null
+        }
+    }
+
+    render() {
+        return (
+            <div id="dinosaursAccordion" className="infoAccordion">
+                {this.props.dinosaurs.map((dinosaur) => {
+                    return (
+                        <RenderDinosaurCard dinosaur={dinosaur}/>
+                    );
+                })}
+            </div>
+        );
+    }
 }
 
 class Dinosaurs extends Component {
     constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
-        this.state = { collapse: 0, cards: [1, 2, 3, 4, 5] };
-    }
-    
-    toggle(e) {
-        let event = e.target.dataset.event;
-        this.setState({ collapse: this.state.collapse === Number(event) ? 0 : Number(event) });
+//        this.toggle = this.toggle.bind(this);
+/*        this.state = { 
+            collapse: 0, 
+        };*/
     }
 
     render () {
@@ -41,20 +108,7 @@ class Dinosaurs extends Component {
                 <div className="container">
                     <div class="row px-xl-3">
                         <div class="col">
-                            <div id="dinosaursAccordion" className="infoAccordion">
-                                {this.props.dinosaurs.map((dinosaur) => {
-                                    return (
-                                        <Card className={dinosaur.diet + " bg-light"} key={dinosaur.key}>
-                                            <Collapse aria-expanded="false">
-                                                <CardHeader onClick={this.toggle}>
-                                                    <img className="dino-icon" src={dinosaur.image} aria-hidden="true"/>
-                                                    <h3>Test0987</h3>
-                                                </CardHeader>
-                                            </Collapse>
-                                        </Card>
-                                    );
-                                })}
-                            </div>
+                            <RenderDinosaursAccordion dinosaurs={this.props.dinosaurs} />
                         </div>
                     </div>
                 </div>
