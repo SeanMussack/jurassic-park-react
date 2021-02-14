@@ -3,7 +3,7 @@ body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
   background-color: rgb(250, 241, 241);
 }
-.fa {
+.fa, .far {
   margin-right: 6px;
   margin-left: 6px;
 }
@@ -288,15 +288,18 @@ h4 {
 .img-shadow {
   box-shadow: 7px 5px rgba(0,0,0,0.25);
 }
-.buy-column {
+.cart-item-subtitle {
+  font-weight: bold;
+}
+.cart-item-column {
   text-align: center;
   font-size: smaller;
 }
-.buy-disclaimer {
+.cart-item-disclaimer {
   font-size: small;
   font-style: italic;
 }
-.buy-price {
+.cart-item-price {
   font-size: xx-large;
   color: green;
 }

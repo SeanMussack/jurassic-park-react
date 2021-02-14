@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import TelephoneLink from "./TelephoneLinkComponent";
 import { PAGES } from "../shared/pages";
 import { PAGECATEGORIES } from "../shared/pageCategories";
 
@@ -52,10 +53,7 @@ function Footer(props) {
                     <div className="stay-connected col-12 col-md-4 col-lg-2 d-flex ">
                         <div className="text-center">
                             <h5 className="text-nowrap">Stay Connected</h5>
-                            <a className="btn btn-link" role="button" href="tel:+18005553466">
-                                <i className="fa fa-phone" aria-hidden="true"></i>
-                                1-800-555-DINO
-                            </a>
+                            <TelephoneLink/>
                             <div>
                                 <button data-toggle="modal" data-target="#newsletterModal" className="btn btn-danger">
                                     <i className="fa fa-envelope" aria-hidden="true"></i>Email Sign-up
