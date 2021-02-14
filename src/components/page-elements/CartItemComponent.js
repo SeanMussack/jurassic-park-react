@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Button } from "reactstrap";
 import { Link } from 'react-router-dom';
-import TelephoneLink from "./TelephoneLinkComponent";
+import TelephoneLink from "../TelephoneLinkComponent";
 
 const defaultDisclaimerTickets = "Valid any one public operating day during the 1993 season.";
 const defaultDisclaimerSeasonPasses = "Valid only during the 1993 season.";
@@ -79,13 +79,14 @@ class CartItem extends Component {
                                 <Link to={this.props.cartItem.href}>{this.props.cartItem.textLink}</Link>
                                 {(this.props.cartItem.text2)
                                     ? this.props.cartItem.text2
-                                    : <React.Fragment/>
+                                    : <React.Fragment>.</React.Fragment>
                                 }
                                 {(this.props.cartItem.href2)
-                                ? <React.Fragment>
-                                    <Link to={this.props.cartItem.href2}>{this.props.cartItem.textLink2}</Link>.
-                                </React.Fragment>
-                                : <React.Fragment>.</React.Fragment>}
+                                    ? <React.Fragment>
+                                        <Link to={this.props.cartItem.href2}>{this.props.cartItem.textLink2}</Link>.
+                                    </React.Fragment>
+                                    : <React.Fragment/>
+                                }
                             </React.Fragment>
                             : <React.Fragment/>
                         }

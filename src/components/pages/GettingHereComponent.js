@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Jumbotron from "./JumbotronComponent";
-import ImageAndText from "./ImageAndTextComponent";
-import { IMAGEANDTEXTDATA } from "../shared/imageAndTextData";
+import Jumbotron from "../page-elements/JumbotronComponent";
+import ImageAndText from "../page-elements/ImageAndTextComponent";
+import { IMAGEANDTEXTDATA } from "../../shared/imageAndTextData";
 
 class GettingHere extends Component {
     constructor(props){

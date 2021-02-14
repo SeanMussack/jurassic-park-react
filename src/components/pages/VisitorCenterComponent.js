@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardText, Row } from "reactstrap";
-import Jumbotron from "./JumbotronComponent";
-import BannerOfImages from "./BannerOfImages";
-import ImageAndText from "./ImageAndTextComponent";
-import { VISITORCENTERCARDS } from "../shared/visitorCenterCards";
-import { BANNEROFIMAGES } from "../shared/bannerOfImages";
-import { IMAGEANDTEXTDATA } from "../shared/imageAndTextData";
+import Jumbotron from "../page-elements/JumbotronComponent";
+import BannerOfImages from "../page-elements/BannerOfImages";
+import ImageAndText from "../page-elements/ImageAndTextComponent";
+import { VISITORCENTERCARDS } from "../../shared/visitorCenterCards";
+import { BANNEROFIMAGES } from "../../shared/bannerOfImages";
+import { IMAGEANDTEXTDATA } from "../../shared/imageAndTextData";
 
 class RenderVisitorCenterCard extends Component {
     constructor(props) {

@@ -7,7 +7,7 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from 'reactstrap';
-import { CAROUSELXL } from '../shared/carouselXL';
+import { CAROUSELXL } from '../../shared/carouselXL';
 
 function RenderCarouselHeader ({item}) {
     return (

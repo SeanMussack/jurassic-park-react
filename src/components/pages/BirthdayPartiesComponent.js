@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Row, Col } from "reactstrap";
-import Jumbotron from "./JumbotronComponent";
-import CartItem from "./CartItemComponent";
-import { CARTITEMS } from "../shared/cartItems";
+import Jumbotron from "../page-elements/JumbotronComponent";
+import CartItem from "../page-elements/CartItemComponent";
+import { CARTITEMS } from "../../shared/cartItems";
 
 class BirthdayParties extends Component {
     render() {

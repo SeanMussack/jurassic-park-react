@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
-import Home from './HomeComponent';
-import Dinosaurs from './DinosaursComponent';
-import BigPicPage from "./BigPicPageComponent";
-import GettingHere from './GettingHereComponent';
-import VisitorCenter from "./VisitorCenterComponent";
-import Calendar from "./CalendarComponent";
-import Tickets from './TicketsComponent';
-import SeasonPasses from './SeasonPassesComponent';
-import Groups from "./GroupsComponent";
-import BirthdayParties from "./BirthdayPartiesComponent";
+import Home from './pages/HomeComponent';
+import Calendar from "./pages/CalendarComponent";
+import GettingHere from './pages/GettingHereComponent';
+import Dinosaurs from './pages/DinosaursComponent';
+import VisitorCenter from "./pages/VisitorCenterComponent";
+import BigPicPage from "./pages/BigPicPageComponent";
+import Tickets from './pages/TicketsComponent';
+import SeasonPasses from './pages/SeasonPassesComponent';
+import Groups from "./pages/GroupsComponent";
+import BirthdayParties from "./pages/BirthdayPartiesComponent";
 import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
-import { Switch, Route, Redirect } from 'react-router-dom';
 
 class Main extends Component {
     constructor(props) {

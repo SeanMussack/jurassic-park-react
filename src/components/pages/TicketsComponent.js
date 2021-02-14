@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col } from "reactstrap";
-import Jumbotron from "./JumbotronComponent";
-import CartItem from "./CartItemComponent";
-import TableOfBenefits from "./TableOfBenefitsComponent";
-import { CARTITEMS } from "../shared/cartItems";
+import Jumbotron from "../page-elements/JumbotronComponent";
+import CartItem from "../page-elements/CartItemComponent";
+import TableOfBenefits from "../page-elements/TableOfBenefitsComponent";
+import { CARTITEMS } from "../../shared/cartItems";
 
 class TicketsComponent extends Component {
     render() {

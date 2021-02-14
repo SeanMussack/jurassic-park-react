@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 import { Link } from 'react-router-dom';
-import { BENEFITS } from "../shared/benefits";
+import { BENEFITS } from "../../shared/benefits";
 
 function isHasBenefit (cartItem, benefit) {
     for (const key in cartItem.benefits) {

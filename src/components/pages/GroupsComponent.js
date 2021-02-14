@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Jumbotron from "./JumbotronComponent";
-import CartItem from "./CartItemComponent";
-import { CARTITEMS } from "../shared/cartItems";
+import Jumbotron from "../page-elements/JumbotronComponent";
+import CartItem from "../page-elements/CartItemComponent";
+import { CARTITEMS } from "../../shared/cartItems";
 
 class SeasonPasses extends Component {
     render() {
