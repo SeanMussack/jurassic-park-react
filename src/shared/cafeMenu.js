@@ -1,0 +1,52 @@
+export const CAFEMENU = [
+    {
+        name: "Artisan Bread",
+        src: "/assets/images/thumbnails/cafe/bread.png",
+        alt: "Several loaves of bread of different shapes and sizes",
+        text: "Try all seven varieties!",
+    },
+    {
+        name: "Green Jell-O",
+        registered: true,
+        src: "/assets/images/thumbnails/visitor-center/cretaceous-cafe3.png",
+        alt: "A visitor holding a spoonful of green Jell-O",
+        text: `There's always time for Jell-O!`,
+        price: "4.99",
+    },
+    {
+        name: "Garden Salad",
+        src: "/assets/images/thumbnails/cafe/salad.png",
+        alt: "A green salad in a white bowl",
+        text: "Includes greens from several extinct plant species.",
+        price: "7.99",
+    },
+    {
+        name: "Fruit and Veggie Platter",
+        src: "/assets/images/thumbnails/cafe/fruit-and-veggie-platter.png",
+        alt: "A plate filled with fruits and vegetables",
+        text: "May vary by season.",
+        price: "8.99",
+    },
+    {
+        name: "Chilean Sea Bass",
+        src: "/assets/images/thumbnails/cafe/fish-dinner.png",
+        alt: "A plate of our Chilean Sea Bass",
+        text: "Served in sauce with Roma tomatoes and haricots verts.",
+        price: "14.99",
+    },
+    {
+        name: "Jolt Cola",
+        registered: true,
+        src: "/assets/images/thumbnails/cafe/jolt-cola.png",
+        alt: "An IT specialist drinking a Jolt Cola",
+        text: "All the Sugar and Twice the Caffeine!",
+        price: "2.99",
+    },
+    {
+        name: "Cakes and Tarts",
+        src: "/assets/images/thumbnails/cafe/cakes.png",
+        alt: "Cakes and tarts of various flavors",
+        text: "Various flavors available.",
+        price: "12.99 per slice",
+    },
+]

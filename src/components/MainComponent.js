@@ -5,6 +5,7 @@ import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
+import Cafe from "./pages/CafeComponent";
 import Dinosaurs from './pages/DinosaursComponent';
 import VisitorCenter from "./pages/VisitorCenterComponent";
 import BigPicPage from "./pages/BigPicPageComponent";
@@ -14,6 +15,7 @@ import Groups from "./pages/GroupsComponent";
 import BirthdayParties from "./pages/BirthdayPartiesComponent";
 import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
+import { CAFEMENU } from "../shared/cafeMenu";
 
 class Main extends Component {
     constructor(props) {
@@ -30,6 +32,7 @@ class Main extends Component {
                     <Route path='/home' component={Home} />
                     <Route path='/calendar-and-hours' render={() => <Calendar/>} />
                     <Route path='/getting-here' render={() => <GettingHere/>} />
+                    <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
                     <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS}/>} />
                     <Route path='/visitor-center' render={() => <VisitorCenter/>} />
                     <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
