@@ -27,7 +27,7 @@ class Main extends Component {
             <React.Fragment>
                 <Header />
                 <Switch>
-                    <Route path='/home' render={() => <Home/>} />
+                    <Route path='/home' component={Home} />
                     <Route path='/calendar-and-hours' render={() => <Calendar/>} />
                     <Route path='/getting-here' render={() => <GettingHere/>} />
                     <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS}/>} />
