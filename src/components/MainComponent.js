@@ -5,6 +5,7 @@ import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
+import Laboratory from "./pages/LaboratoryComponent";
 import Cafe from "./pages/CafeComponent";
 import Dinosaurs from './pages/DinosaursComponent';
 import VisitorCenter from "./pages/VisitorCenterComponent";
@@ -32,6 +33,7 @@ class Main extends Component {
                     <Route path='/home' component={Home} />
                     <Route path='/calendar-and-hours' render={() => <Calendar/>} />
                     <Route path='/getting-here' render={() => <GettingHere/>} />
+                    <Route path='/laboratory' render={() => <Laboratory/>} />
                     <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
                     <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS}/>} />
                     <Route path='/visitor-center' render={() => <VisitorCenter/>} />

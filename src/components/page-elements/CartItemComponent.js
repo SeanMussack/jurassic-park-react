@@ -20,7 +20,7 @@ class CartItemColumn extends Component {
                 plus applicable taxes and fees
                 <div className="d-flex justify-content-center mt-3">
                     <Button color="danger">
-                        Add                            <span className="sr-only">{this.props.cartItem.buttonSrOnly + " "}</span>
+                        Add <span className="sr-only">{this.props.cartItem.buttonSrOnly + " "}</span>
                         to Cart
                     </Button>
                 </div>

@@ -138,7 +138,7 @@ class Header extends Component {
                 <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">
                     <div className="container-fluid d-flex pl-md-0 pl-lg-3">
                         <NavbarBrand href="/home">
-                            <img src="/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
+                            <img src="/assets/images/logos/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
                         </NavbarBrand>
                         <RenderNavbarToggler />
                     </div>

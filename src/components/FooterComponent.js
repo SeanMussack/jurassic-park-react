@@ -67,8 +67,8 @@ function Footer(props) {
                     <div className="col col-md-6 col-lg-6 offset-lg-3 d-flex justify-content-center">
                         <div className="container-fluid">
                             <div className="row justify-content-around align-items-center">
-                                <Link to='./home'><img src="/Jurassic_Park_logo.png" width="200" className="m-3 m-md-0"/></Link>
-                                <a href='https://jurassicpark.fandom.com/wiki/InGen'><img src="/ingen-logo.png" height="80" width="auto"/></a>
+                                <Link to='./home'><img src="/assets/images/logos/Jurassic_Park_logo.png" width="200" className="m-3 m-md-0"/></Link>
+                                <a href='https://jurassicpark.fandom.com/wiki/InGen'><img src="/assets/images/logos/ingen-logo.png" height="80" width="auto"/></a>
                             </div>
                         </div>
                     </div>

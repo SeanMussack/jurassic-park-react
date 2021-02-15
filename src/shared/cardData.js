@@ -1,0 +1,87 @@
+export const CARDDATA = [
+    {
+        key: 0,
+        src: '/assets/images/thumbnails/visitor-center/laboratory.png',
+        alt: 'Scientists hard at work in our Laboratory',
+        text: 'Learn the Science Behind the Park at our ',
+        linkText: 'Laboratory',
+        href: '/laboratory'
+    },
+    {
+        key: 1,
+        src: '/assets/images/thumbnails/visitor-center/showcase-theater.png',
+        alt: 'People watching a film at the Showcase Theater',
+        text: 'Watch an Informative Film at our ',
+        linkText: 'Showcase Theater',
+        href: '/showcase-theater'
+    },
+    {
+        key: 2,
+        src: '/assets/images/thumbnails/visitor-center/cretaceous-cafe3.png',
+        alt: 'A visitor holding a spoonful of green Jell-O',
+        text: 'Grab a Snack at the ',
+        linkText: 'Cretaceous Cafe',
+        href: '/cafe'
+    },
+    {
+        key: 3,
+        src: '/assets/images/thumbnails/visitor-center/gift-shop.png',
+        alt: 'Jurassic Park merchandise at the Gift Shop',
+        text: 'Get Some Swag at the ',
+        linkText: 'Gallimimus Gift Shop',
+        href: '/gift-shop'
+    },
+    {
+        key: 4,
+        src: '/assets/images/thumbnails/laboratory/virtual-reality.png',
+        alt: "A pair of virtual reality gloves, which are rotating a DNA molecule on a screen",
+        title: "Experience the World of DNA in Virtual Reality",
+        text: "With advanced virtual reality techniques, you'll be able to see the DNA molecule in a whole new way!",
+    },
+    {
+        key: 5,
+        src: '/assets/images/thumbnails/laboratory/amber-technician.png',
+        alt: "A lab technician drilling into a piece of amber",
+        title: "Unlock the Secrets of Prehistoric Amber",
+        text: "Learn how our scientists use sophisticated techniques to retrieve ancient DNA from inside a fossilized mosquito.",
+    },
+    {
+        key: 6,
+        id: "hatchery",
+        src: '/assets/images/thumbnails/laboratory/hatchery.png',
+        alt: "A baby Velociraptor hatching out of its egg",
+        title: "Witness the Miracle of Birth ",
+        titleHref: "/tickets#VIP",
+        titleLinkText: "(VIP only)",
+        text: "Come see the miracle of cloning for your own eyes!",
+        text2: "Availability may vary, depending on embryo timing.",
+        buttonSrOnly: " about VIP packages",
+    },
+    {
+        key: 7,
+        src: "/assets/images/thumbnails/index/regular-admission-thumbnail.png",
+        alt: "Some guests riding in one of our tour cars",
+        title: "Tickets",
+        text: "Plan your trip in advance by buying your tickets online today! General admission includes the price of ferry rides both to and from the island.",
+        text2: "Student and elderly discounts are available, as are optional dining and VIP packages.",
+        buttonSrOnly: " about tickets",
+    },
+    {
+        key: 8,
+        src: "/assets/images/thumbnails/index/groups-thumbnail.png",
+        alt: "A group of guests talking in a helicopter",
+        title: "Group Pricing",
+        text: "Come as a group of 10 or more and save! Grab your friends and family for an adventure they'll never forget.",
+        text2: "Corporate and special events are available to book upon request.",
+        buttonSrOnly: " about group pricing",
+    },
+    {
+        key: 9,
+        src: "/assets/images/thumbnails/index/season-pass-thumbnail.png",
+        alt: "Two guests looking off into the distance",
+        title: "Season Passes",
+        text: "Pay for the whole year and enjoy Jurassic Park again and again!",
+        text2: "Season passes are valid for 12 months. Dining and VIP packages also available.",
+        buttonSrOnly: " about season passes",
+    },
+]

@@ -48,7 +48,7 @@ export const BANNEROFIMAGES = [
                 alt: 'Extracting DNA from a mosquito trapped in amber'
             },
             {
-                src: '/assets/images/thumbnails/laboratory/laboratory.png',
+                src: '/assets/images/thumbnails/visitor-center/laboratory.png',
                 alt: 'People at work in the laboratory'
             },
             {
@@ -56,5 +56,34 @@ export const BANNEROFIMAGES = [
                 alt: 'A clutch of dinosaur eggs in the hatchery, surrounded by a group of people'
             }
         ]
-    }
+    },
+    {
+        header: '',
+        images: [
+            {
+                src: '/assets/images/thumbnails/laboratory/hatchery2.png',
+                alt: 'A clutch of dinosaur eggs in the hatchery, surrounded by a group of people'
+            },
+            {
+                src: '/assets/images/thumbnails/visitor-center/fossil-trex.png',
+                alt: 'A fossil of a Tyrannosaurus'
+            },
+            {
+                src: '/assets/images/thumbnails/laboratory/dr-wu-with-clipboard.png',
+                alt: 'Dr. Henry Wu, chief genetic engineer of InGen, writing on a clipboard'
+            },
+            {
+                src: '/assets/images/thumbnails/visitor-center/cretaceous-cafe.png',
+                alt: 'Tables and chairs at the Cretaceous Cafe'
+            },
+            {
+                src: '/assets/images/thumbnails/laboratory/secrets-of-amber.png',
+                alt: 'Extracting DNA from a mosquito trapped in amber'
+            },
+            {
+                src: '/assets/images/thumbnails/visitor-center/cretaceous-cafe2.png',
+                alt: 'Two people sitting at opposite ends of a long table in the Cretaceous Cafe'
+            }
+        ]
+    },
 ]
