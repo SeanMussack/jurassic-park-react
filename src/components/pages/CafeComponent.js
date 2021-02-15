@@ -3,6 +3,12 @@ import { Container, Row, Card, CardImg, CardBody, CardText } from "reactstrap";
 import { Link } from 'react-router-dom';
 import Jumbotron from "../page-elements/JumbotronComponent";
 
+function RenderRegisteredIcon() {
+    return (
+        <i className="far fa-registered fa-sm" aria-hidden="true"></i>
+    );
+}
+
 class CafeCard extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +27,7 @@ class CafeCard extends Component {
                     <h5>
                         {this.props.cafeMenuItem.name}
                         {(this.props.cafeMenuItem.registered)
-                            ? <i className="far fa-registered" aria-hidden="true"></i>
+                            ? RenderRegisteredIcon()
                             : <React.Fragment/>
                         }
                     </h5>
