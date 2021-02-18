@@ -19,13 +19,11 @@ class RenderDinosaurCard extends Component {
         }
         this.toggleCard = this.toggleCard.bind(this);
     }
-
     toggleCard() {
         this.setState({
             isCardOpen: !this.state.isCardOpen
         })
     }
-    
     render() {
         return (
             <Card className={this.props.dinosaur.diet + " bg-light"} key={this.props.dinosaur.key}>
@@ -69,7 +67,6 @@ class RenderDinosaursAccordion extends Component {
             openCard: null
         }
     }
-
     render() {
         return (
             <div id="dinosaursAccordion" className="infoAccordion">
@@ -91,7 +88,6 @@ class Dinosaurs extends Component {
             collapse: 0, 
         };*/
     }
-
     render () {
         return (
             <div id="mainContent">
