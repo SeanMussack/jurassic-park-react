@@ -65,8 +65,8 @@ export const BANNEROFIMAGES = [
                 alt: 'A clutch of dinosaur eggs in the hatchery, surrounded by a group of people'
             },
             {
-                src: '/assets/images/thumbnails/visitor-center/fossil-trex.png',
-                alt: 'A fossil of a Tyrannosaurus'
+                src: '/assets/images/thumbnails/visitor-center/showcase-theater.png',
+                alt: 'People watching a film at the Showcase Theater'
             },
             {
                 src: '/assets/images/thumbnails/laboratory/dr-wu-with-clipboard.png',
