@@ -26,7 +26,7 @@ function RenderHeaderSubcategory({pageCategory, subcategory}) {
 }
 function RenderFeaturedButton({featured}) {
     return (
-        <a className="btn btn-danger" href={featured.link}>{featured.buttonText}<span className="sr-only">{featured.buttonTextSrOnly}</span>{featured.buttonTextAfter}</a>
+        <Link className="btn btn-danger" to={featured.link}>{featured.buttonText}<span className="sr-only">{featured.buttonTextSrOnly}</span>{featured.buttonTextAfter}</Link>
     );
 }
 function RenderFeatured({featured}) {
@@ -69,7 +69,10 @@ function RenderHeaderDropdown({pageCategory}) {
 
     return (
         <Dropdown className="nav-item col-md px-0" isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle caret className={"align-self-md-stretch pt-md-3 pb-md-4 mt-md-2 px-2 px-md-2 px-lg-4 px-xl-5 w-100" + (pageCategory.id == 0 ? " ml-md-1" : "") + (pageCategory.id == 3 ? " pr-md-3" : "")}>
+            <DropdownToggle caret className={"align-self-md-stretch pt-md-3 pb-md-4 mt-md-2 px-2 px-md-2 px-lg-4 px-xl-5 w-100" 
+                + (pageCategory.id == 0 ? " ml-md-1" : "") 
+                + (pageCategory.id == 3 ? " pr-md-3" : "")
+            }>
                 {pageCategory.name}
                 <RenderNavItemLgAndUp pageCategory={pageCategory}/>
             </DropdownToggle>
@@ -137,9 +140,9 @@ class Header extends Component {
                 </div>
                 <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">
                     <div className="container-fluid d-flex pl-md-0 pl-lg-3">
-                        <NavbarBrand href="/home">
+                        <Link to="/home" className="navbar-brand">
                             <img src="/assets/images/logos/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
-                        </NavbarBrand>
+                        </Link>
                         <RenderNavbarToggler />
                     </div>
                 </Navbar>
