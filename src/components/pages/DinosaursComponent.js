@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Collapse, Card, CardBody, CardHeader, CardText } from 'reactstrap';
+import { Collapse, Card, CardBody, CardHeader, CardText,
+    Container, Row, Col } from 'reactstrap';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 function capitalize(string) {
     return (
@@ -70,47 +72,38 @@ class RenderDinosaursAccordion extends Component {
     render() {
         return (
             <div id="dinosaursAccordion" className="infoAccordion">
-                {this.props.dinosaurs.map((dinosaur) => {
-                    return (
-                        <RenderDinosaurCard dinosaur={dinosaur}/>
-                    );
-                })}
+                <Stagger in>
+                    {this.props.dinosaurs.map((dinosaur) => {
+                        return (<RenderDinosaurCard dinosaur={dinosaur}/>);
+                    })}
+                </Stagger>
             </div>
         );
     }
 }
 
-class Dinosaurs extends Component {
-    constructor(props) {
-        super(props);
-//        this.toggle = this.toggle.bind(this);
-/*        this.state = { 
-            collapse: 0, 
-        };*/
-    }
-    render () {
-        return (
-            <div id="mainContent">
-                <div className="container">
-                    <div className="row row-content">
-                        <h1>Dinosaurs</h1>
-                    </div>
+function Dinosaurs (props) {
+    return (
+        <div id="mainContent">
+            <Container>
+                <div className="row row-content">
+                    <h1>Dinosaurs</h1>
                 </div>
-                <div className="container">
-                    <div className="row row-content">
-                        <p>Come see the magestic creatures that have made Jurassic Park famous! The genetic engineers in our <Link to="/laboratory">Laboratory</Link> are de-extincting new species all the time.</p>
-                    </div>
+            </Container>
+            <Container>
+                <div className="row row-content">
+                    <p>Come see the magestic creatures that have made Jurassic Park famous! The genetic engineers in our <Link to="/laboratory">Laboratory</Link> are de-extincting new species all the time.</p>
                 </div>
-                <div className="container">
-                    <div class="row px-xl-3">
-                        <div class="col">
-                            <RenderDinosaursAccordion dinosaurs={this.props.dinosaurs} />
-                        </div>
+            </Container>
+            <div className="container">
+                <div class="row px-xl-3">
+                    <div class="col">
+                        <RenderDinosaursAccordion dinosaurs={props.dinosaurs} />
                     </div>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Dinosaurs;
