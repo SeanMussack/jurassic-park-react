@@ -8,6 +8,7 @@ import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
+import Accessibility from './pages/AccessibilityComponent';
 import FAQ from './pages/FAQComponent';
 import Laboratory from "./pages/LaboratoryComponent";
 import Cafe from "./pages/CafeComponent";
@@ -46,6 +47,7 @@ class Main extends Component {
                             <Route path='/home' component={Home} />
                             <Route path='/calendar-and-hours' render={() => <Calendar/>} />
                             <Route path='/getting-here' render={() => <GettingHere/>} />
+                            <Route path='/accessibility' component={Accessibility} />
                             <Route path='/faq' render={() => <FAQ/>} />
                             <Route path='/laboratory' render={() => <Laboratory/>} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
