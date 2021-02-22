@@ -31,6 +31,9 @@ function ImageCarousel ({items}) {
             activeIndex={activeIndex}
             next={next}
             previous={previous}
+            slide
+            pause="false"
+            ride="carousel"
         >
             {items.map((carouselItem) => RenderCarouselItem(carouselItem))}
         </Carousel>

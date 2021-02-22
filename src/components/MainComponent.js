@@ -13,6 +13,7 @@ import Jobs from './pages/JobsComponent';
 import FAQ from './pages/FAQComponent';
 import Laboratory from "./pages/LaboratoryComponent";
 import Cafe from "./pages/CafeComponent";
+import GiftShop from './pages/GiftShopComponent';
 import Dinosaurs from './pages/DinosaursComponent';
 import VisitorCenter from "./pages/VisitorCenterComponent";
 import BigPicPage from "./pages/BigPicPageComponent";
@@ -74,6 +75,7 @@ class Main extends Component {
                             <Route path='/faq' render={() => <FAQ/>} />
                             <Route path='/laboratory' render={() => <Laboratory/>} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
+                            <Route path='/gift-shop' component={GiftShop} />
                             <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
                             <Route path='/visitor-center' render={() => <VisitorCenter/>} />
                             <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />

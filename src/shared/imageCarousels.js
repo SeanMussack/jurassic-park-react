@@ -20,5 +20,19 @@ export const IMAGECAROUSELS = [
             src: '/assets/images/carousel/jobs/IT-security.png',
             alt: 'A person at a computer talking into a telephone headset',
         }
+    ],
+    [
+        {
+            src: '/assets/images/carousel/gift-shop/01.png',
+            alt: 'Some plush dinosaurs',
+        },
+        {
+            src: '/assets/images/carousel/gift-shop/02.png',
+            alt: 'Some Jurassic Park graphic tee-shirts',
+        },
+        {
+            src: '/assets/images/carousel/gift-shop/03.png',
+            alt: "A dinosaur stamp set and the book 'The Making of Jurassic Park'",
+        }
     ]
 ]

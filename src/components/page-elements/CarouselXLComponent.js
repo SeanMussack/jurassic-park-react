@@ -63,6 +63,9 @@ const CarouselXL = (props) => {
             activeIndex={activeIndex}
             next={next}
             previous={previous}
+            slide
+            pause="false"
+            ride="carousel"
         >
             <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
             {slides}
