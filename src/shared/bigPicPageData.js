@@ -17,5 +17,13 @@ export const BIGPICPAGEDATA = [
         srcSm: "/assets/images/large/gate-md.png",
         srcLg: "/assets/images/large/gate-xl.png",
         alt: "A beautiful set of waterfalls near a helicopter"
+    },
+    {
+        title: "404",
+        subtitle: "Page not found",
+        srcXs: "/assets/images/large/404-xs.png",
+        srcSm: "/assets/images/large/404-md.png",
+        srcLg: "/assets/images/large/404-xl.png",
+        alt: "A blue computer screen that reads, 'Permission Denied... and... You didn't say the magic word!'"
     }
 ]
