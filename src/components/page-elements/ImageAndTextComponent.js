@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class ImageAndText extends Component {
@@ -21,10 +21,27 @@ class ImageAndText extends Component {
                 </div>
                 <div className="col-12 col-md-8">
                     <h3 className="pt-2">
-                        {(this.props.imageAndTextData.href) ? <Link to={this.props.imageAndTextData.href}>{this.props.imageAndTextData.header}</Link> : this.props.imageAndTextData.header}
+                        {   (this.props.imageAndTextData.headerHref) 
+                            ? <Link to={this.props.imageAndTextData.headerHref}>{this.props.imageAndTextData.header}</Link> 
+                            : this.props.imageAndTextData.header
+                        }
                     </h3>
                     <br className="d-none d-md-block"/>
-                    <p>{this.props.imageAndTextData.text}</p>
+                    <p>
+                        {this.props.imageAndTextData.text}
+                        {   (this.props.imageAndTextData.textHref)
+                            ? <React.Fragment>
+                                <Link to={this.props.imageAndTextData.textHref}>
+                                    {this.props.imageAndTextData.textLink}
+                                </Link>
+                                {   (this.props.imageAndTextData.text2)
+                                    ? this.props.imageAndTextData.text2
+                                    : "."
+                                }
+                                </React.Fragment>
+                            : <React.Fragment/>
+                        }
+                    </p>
                 </div>
             </div>
         );
