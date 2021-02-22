@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Collapse, Card, CardBody, CardHeader, CardText,
     Container, Row, Col } from 'reactstrap';
-import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import { Fade, Stagger } from 'react-animation-components';
 
 function capitalize(string) {
     return (
@@ -42,7 +42,7 @@ class RenderDinosaurCard extends Component {
                         <CardText className="col-12 col-md my-auto mx-lg-5">
                             {this.props.dinosaur.text}
                         </CardText>
-                        <div class="dino-info-column col-12 col-md col-lg-3">
+                        <Col className="dino-info-column" size={12} md={6} lg={3}>
                             <h5>Diet:</h5>
                             <p>{capitalize(this.props.dinosaur.diet)}</p>
                             <h5>Name Meaning:</h5>
@@ -51,7 +51,7 @@ class RenderDinosaurCard extends Component {
                             <p>{this.props.dinosaur.region}</p>
                             <h5>Epoch:</h5>
                             <p>{this.props.dinosaur.epoch}</p>
-                        </div>
+                        </Col>
                     </CardBody>
                 </Collapse>
             </Card>
@@ -74,7 +74,11 @@ class RenderDinosaursAccordion extends Component {
             <div id="dinosaursAccordion" className="infoAccordion">
                 <Stagger in>
                     {this.props.dinosaurs.map((dinosaur) => {
-                        return (<RenderDinosaurCard dinosaur={dinosaur}/>);
+                        return (
+                            <Fade in key={dinosaur.name}>
+                                <RenderDinosaurCard dinosaur={dinosaur}/>
+                            </Fade>
+                        );
                     })}
                 </Stagger>
             </div>
@@ -86,22 +90,22 @@ function Dinosaurs (props) {
     return (
         <div id="mainContent">
             <Container>
-                <div className="row row-content">
+                <Row className="row-content">
                     <h1>Dinosaurs</h1>
-                </div>
+                </Row>
             </Container>
             <Container>
-                <div className="row row-content">
+                <Row className="row-content">
                     <p>Come see the magestic creatures that have made Jurassic Park famous! The genetic engineers in our <Link to="/laboratory">Laboratory</Link> are de-extincting new species all the time.</p>
-                </div>
+                </Row>
             </Container>
-            <div className="container">
-                <div class="row px-xl-3">
-                    <div class="col">
+            <Container>
+                <Row className="px-xl-3">
+                    <Col>
                         <RenderDinosaursAccordion dinosaurs={props.dinosaurs} />
-                    </div>
-                </div>
-            </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 }

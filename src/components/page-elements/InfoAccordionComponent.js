@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Card, Collapse } from "reactstrap";
 import CardBody from "reactstrap/lib/CardBody";
 import CardHeader from "reactstrap/lib/CardHeader";
+import { Fade, Stagger } from 'react-animation-components';
 
 class RenderInfoAccordionCard extends Component {
     constructor(props) {
@@ -61,9 +62,15 @@ class InfoAccordion extends Component {
     render() {
         return (
             <div className="infoAccordion">
-                {this.props.data.cards.map((cardData) => {
-                    return (<RenderInfoAccordionCard cardData={cardData}/>);
-                })}
+                <Stagger in>
+                    {this.props.data.cards.map((cardData) => {
+                        return (
+                            <Fade in key={cardData.key}>
+                                <RenderInfoAccordionCard cardData={cardData}/>
+                            </Fade>
+                        );
+                    })}
+                </Stagger>
             </div>
         );
     }
