@@ -50,9 +50,16 @@ class Main extends Component {
             cart: [],
         }
         this.toggleCartModal = this.toggleCartModal.bind(this);
+        this.addToCart = this.addToCart.bind(this);
     }
     toggleCartModal() {
-        this.setState({isCartModalOpen: !this.state.isCartModalOpen})
+        this.setState({isCartModalOpen: !this.state.isCartModalOpen});
+    }
+    addToCart(cartItem) {
+        this.setState({cart: this.state.cart.concat(cartItem)});
+        if (!(this.state.isCartModalOpen)) {
+            this.toggleCartModal();
+        }
     }
     /*componentDidMount() {
         this.props.fetchDinosaurs();
@@ -81,9 +88,9 @@ class Main extends Component {
                             <Route path='/visitor-center' render={() => <VisitorCenter/>} />
                             <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
                             <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
-                            <Route path='/tickets' render={() => <Tickets />} />
-                            <Route path='/season-passes' render={() => <SeasonPasses />} />
-                            <Route path='/groups' render={() => <Groups />} />
+                            <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
+                            <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
+                            <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
                             <Route path='/birthday-parties' render={() => <BirthdayParties />} />
                             <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
                             <Redirect to='/404' />

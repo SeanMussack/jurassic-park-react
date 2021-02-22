@@ -6,6 +6,9 @@ import TableOfBenefits from "../page-elements/TableOfBenefitsComponent";
 import { CARTITEMS } from "../../shared/cartItems";
 
 class TicketsComponent extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div id="mainContent">
@@ -15,15 +18,15 @@ class TicketsComponent extends Component {
                     isRightAligned="true"
                 />
                 <div className="container-fluid">
-                    <CartItem cartItem={CARTITEMS[0]}/>
-                    <hr/>
-                    <CartItem cartItem={CARTITEMS[1]}/>
-                    <hr/>
-                    <CartItem cartItem={CARTITEMS[2]}/>
-                    <hr/>
-                    <CartItem cartItem={CARTITEMS[3]}/>
+                    {CARTITEMS.slice(0, 4).map((item) => {
+                        return (
+                            <React.Fragment>
+                                <CartItem cartItem={item} addToCart={this.props.addToCart} />
+                                <hr/>
+                            </React.Fragment>
+                        );
+                    })}
                 </div>
-                <hr/>
                 <Row className="row-content">
                     <Col xl={{size: 10, offset: 1}}>
                         <TableOfBenefits

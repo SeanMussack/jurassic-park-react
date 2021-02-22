@@ -13,7 +13,7 @@ class SeasonPasses extends Component {
                     isRightAligned="true"
                 />
                 <div className="container-fluid">
-                    <CartItem cartItem={CARTITEMS[7]}/>
+                    <CartItem cartItem={CARTITEMS[7]} addToCart={this.props.addToCart} />
                     <hr/>
                     <CartItem cartItem={CARTITEMS[8]}/>
                 </div>

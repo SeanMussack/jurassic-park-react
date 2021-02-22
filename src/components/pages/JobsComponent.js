@@ -30,7 +30,7 @@ function RenderContact () {
 
 function RenderJobsBenefitsList () {
     return (
-        <Col size={12} md={6} lg={{size: 4, offset: 1}} >
+        <Col xs={12} md={6} lg={{size: 4, offset: 1}} >
             <ul className="text-white pl-4">
                 {JOBSBENEFITS.map((benefit) => <li>{benefit}</li>)}
             </ul>

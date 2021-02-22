@@ -15,13 +15,15 @@ class SeasonPasses extends Component {
                     isRightAligned="true"
                 />
                 <div className="container-fluid">
-                    <CartItem cartItem={CARTITEMS[4]}/>
-                    <hr/>
-                    <CartItem cartItem={CARTITEMS[5]}/>
-                    <hr/>
-                    <CartItem cartItem={CARTITEMS[6]}/>
+                    {CARTITEMS.slice(4, 7).map((item) => {
+                        return (
+                            <React.Fragment>
+                                <CartItem cartItem={item} addToCart={this.props.addToCart} />
+                                <hr/>
+                            </React.Fragment>
+                        );
+                    })}
                 </div>
-                <hr/>
                 <Row className="row-content">
                     <Col xl={{size: 10, offset: 1}}>
                         <TableOfBenefits

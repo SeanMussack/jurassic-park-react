@@ -1,6 +1,6 @@
 export const CARTITEMS = [
     {
-        nameShort: "Regular Admission",
+        nameShort: "One-Day Tickets",
         name: "Regular One-Day Admission",
         subtitle: "Buy Online and Save!",
         icon: "fa fa-ticket-alt",
@@ -9,7 +9,6 @@ export const CARTITEMS = [
         href: "/getting-here#boat",
         textPrice: "Buy Online for Only",
         price: "189.99",
-        buttonSrOnly: "Regular One-Day Tickets",
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -17,6 +16,7 @@ export const CARTITEMS = [
         }
     },
     {
+        nameShort: "Student & Elderly Tickets",
         name: "One-Day Admission: Student & Elderly Discount",
         subtitle: "Special Discount Pricing",
         icon: "fa fa-graduation-cap",
@@ -24,7 +24,6 @@ export const CARTITEMS = [
         disclaimer: "A valid student ID or proof of age must be presented to confirm discount.",
         textPrice: "Buy Online for Only",
         price: "164.99",
-        buttonSrOnly: "Student & Elderly Discount Tickets",
     },
     {
         nameShort: "All-You-Can-Eat",
@@ -45,7 +44,7 @@ export const CARTITEMS = [
     },
     {
         id: "VIP",
-        nameShort: "VIP Admission",
+        nameShort: "VIP One-Day Tickets",
         name: "VIP One-Day Admission",
         icon: "far fa-gem",
         text: "Experience Jurassic Park the way it's meant to be! Includes round-trip tickets to the island by ",
@@ -56,7 +55,6 @@ export const CARTITEMS = [
         href2: "/laboratory#hatchery",
         textPrice: "Buy Online for",
         price: "349.99",
-        buttonSrOnly: "VIP One-Day Tickets",
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -69,7 +67,7 @@ export const CARTITEMS = [
     },
     {
         seasonPass: true,
-        nameShort: "Regular Season Pass",
+        nameShort: "Season Pass",
         name: "Season Pass",
         subtitle: "Pay for the Whole Year and Save!",
         icon: "fa fa-address-card",
@@ -77,7 +75,6 @@ export const CARTITEMS = [
         textPrice: "12 Months of Visits Only",
         price: "949.95",
         equivalentVisits: 5,
-        buttonSrOnly: "Season Pass",
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -86,8 +83,9 @@ export const CARTITEMS = [
     },
     {
         seasonPass: true,
-        nameShort: "SP + Unlimited Dining",
         name: "Season Pass + Unlimited Dining",
+        nameShort: "SP + Dining",
+        nameSrOnly: "Season Pass plus Unlimited Dining",
         subtitle: "Pay for the Whole Year and Save!",
         icon: "fa fa-utensils",
         text: "Includes unlimited visits during the 1993 season, as well as unlimited all-you-can-eat at the ",
@@ -96,7 +94,6 @@ export const CARTITEMS = [
         textPrice: "12 Months of Visits & Dining Only",
         price: "1,249.90",
         equivalentVisits: 5,
-        buttonSrOnly: "Season Pass plus Unlimited Dining",
         benefits: {
             "access": true,
             "dinosaurs": true,

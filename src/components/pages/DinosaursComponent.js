@@ -42,7 +42,7 @@ class RenderDinosaurCard extends Component {
                         <CardText className="col-12 col-md my-auto mx-lg-5">
                             {this.props.dinosaur.text}
                         </CardText>
-                        <Col className="dino-info-column" size={12} md={6} lg={3}>
+                        <Col className="dino-info-column" xs={12} md={6} lg={3}>
                             <h5>Diet:</h5>
                             <p>{capitalize(this.props.dinosaur.diet)}</p>
                             <h5>Name Meaning:</h5>

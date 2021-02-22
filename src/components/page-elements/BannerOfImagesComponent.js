@@ -3,7 +3,7 @@ import { Row, Col } from 'reactstrap';
 
 function RenderImage({image}) {
     return (
-        <Col size={6} md={4}>
+        <Col xs={6} md={4}>
             <img
                 className="img-fluid"
                 src={image.src}

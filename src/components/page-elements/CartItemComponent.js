@@ -7,7 +7,17 @@ const defaultDisclaimerTickets = "Valid any one public operating day during the 
 const defaultDisclaimerSeasonPasses = "Valid only during the 1993 season.";
 const defaultDisclaimerNoPrice = "Call for package details.";
 
-class CartItemColumn extends Component {
+class AddToCartColumn extends Component {
+    constructor(props) {
+        super(props);
+        this.props = {
+            cartItem: null
+        }
+        this.addThisItemToCart = this.addThisItemToCart.bind(this);
+    }
+    addThisItemToCart() {
+        this.props.addToCart(this.props.cartItem);
+    }
     render() {
         return (
             <Col md="4" className="cart-item-column my-auto">
@@ -19,8 +29,13 @@ class CartItemColumn extends Component {
                 }
                 plus applicable taxes and fees
                 <div className="d-flex justify-content-center mt-3">
-                    <Button color="danger">
-                        Add <span className="sr-only">{this.props.cartItem.buttonSrOnly + " "}</span>
+                    <Button onClick={this.addThisItemToCart} color="danger">
+                        Add <span className="sr-only">
+                                {   (this.props.cartItem.nameSrOnly)
+                                    ? this.props.cartItem.nameSrOnly + " "
+                                    : this.props.cartItem.nameShort + " "
+                                }
+                            </span>
                         to Cart
                     </Button>
                 </div>
@@ -109,7 +124,7 @@ class CartItem extends Component {
                     </p>
                 </Col>
                 {(this.props.cartItem.price)
-                    ? <CartItemColumn cartItem={this.props.cartItem}/>
+                    ? <AddToCartColumn cartItem={this.props.cartItem} addToCart={this.props.addToCart}/>
                     : <TelColumn text={this.props.cartItem.textTelColumn}/>
                 }
                 

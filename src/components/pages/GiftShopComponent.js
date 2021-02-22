@@ -13,7 +13,7 @@ function GiftShop () {
             />
             <Container fluid>
                 <Row className="row-content align-items-center">
-                    <Col className="gift-shop-column" size={12} md={4} lg={6}>
+                    <Col className="gift-shop-column" xs={12} md={4} lg={6}>
                         <p>We have all kinds of great gifts available for sale in our Gallimimus Gift Shop, from graphic tees to adorable plush dinosaurs.</p>
                         <p>Find the Gift Shop in the <Link to="/visitor-center">Visitor Center</Link>.</p>
                     </Col>
