@@ -9,6 +9,7 @@ import Home from './pages/HomeComponent';
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
 import Accessibility from './pages/AccessibilityComponent';
+import Jobs from './pages/JobsComponent';
 import FAQ from './pages/FAQComponent';
 import Laboratory from "./pages/LaboratoryComponent";
 import Cafe from "./pages/CafeComponent";
@@ -69,6 +70,7 @@ class Main extends Component {
                             <Route path='/calendar-and-hours' render={() => <Calendar/>} />
                             <Route path='/getting-here' render={() => <GettingHere/>} />
                             <Route path='/accessibility' component={Accessibility} />
+                            <Route path='/jobs' render={() => <Jobs/>} />
                             <Route path='/faq' render={() => <FAQ/>} />
                             <Route path='/laboratory' render={() => <Laboratory/>} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />

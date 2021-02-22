@@ -7,13 +7,23 @@ const telIcon = "fa fa-phone";
 class TelephoneLink extends Component {
     constructor(props) {
         super(props);
+        this.props = {
+            hideIcon: false,
+        }
     }
     render() {
         return (
-            <a className="btn btn-link" role="button" href={"tel:+" + telNum}>
-                <i className={telIcon} aria-hidden="true"></i>
-                {telText}
-            </a>
+            <React.Fragment>
+                {   (this.props.hideIcon)
+                    ?   <a href={"tel:+" + telNum}>
+                            {telText}
+                        </a>
+                    :   <a className="btn btn-link" role="button" href={"tel:+" + telNum}>
+                            <i className={telIcon} aria-hidden="true"></i>
+                            {telText}
+                        </a>
+                }
+            </React.Fragment>
         );
     }
 }
