@@ -6,3 +6,8 @@ export const ADD_DINOSAURS = 'ADD_DINOSAURS';
 export const DINOSAURS_LOADING = 'DINOSAURS_LOADING';
 export const DINOSAURS_FAILED = 'DINOSAURS_FAILED';
 
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const CART_FAILED = 'CART_FAILED';
+/*export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';*/
+export const TOGGLE_CART_MODAL = 'TOGGLE_CART_MODAL';

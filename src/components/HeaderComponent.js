@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Nav, Navbar, NavbarBrand, NavbarToggler, Collapse, Dropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
+import { Nav, Navbar, NavbarToggler, Collapse, Dropdown, DropdownToggle, DropdownMenu, Button } from 'reactstrap';
 import { PAGES } from "../shared/pages";
 import { PAGECATEGORIES } from "../shared/pageCategories";
 import { FEATURED } from "../shared/featured";
@@ -10,9 +10,10 @@ function RenderHeaderLink({page}) {
         <Link className="dropdown-item" to={page.link}><i className={page.icon} aria-hidden="true"></i>{page.name}</Link>
     );
 }
+
 function RenderHeaderSubcategory({pageCategory, subcategory}) {
     return (
-        <div className="col-md">
+        <div className="col-md px-0">
             <h4 className="d-none d-md-block">
                 {(subcategory == 1) ? pageCategory.subcategory1 : pageCategory.subcategory0}
             </h4>
@@ -24,6 +25,7 @@ function RenderHeaderSubcategory({pageCategory, subcategory}) {
         </div>
     );
 }
+
 function RenderFeaturedButton({featured}) {
     return (
         <Link className="btn btn-danger" to={featured.link}>{featured.buttonText}<span className="sr-only">{featured.buttonTextSrOnly}</span>{featured.buttonTextAfter}</Link>
@@ -45,6 +47,7 @@ function RenderFeatured({featured}) {
         </div>
     );
 }
+
 function RenderHeaderCategory({pageCategory}) {
     return (
         <div className="row">
@@ -54,6 +57,7 @@ function RenderHeaderCategory({pageCategory}) {
         </div>
     );
 }
+
 function RenderNavItemLgAndUp({pageCategory}) {
     if (pageCategory.nameOnlyMdAndUp) {
         return (
@@ -62,6 +66,7 @@ function RenderNavItemLgAndUp({pageCategory}) {
     }
     return <React.Fragment />
 }
+
 function RenderHeaderDropdown({pageCategory}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -92,22 +97,23 @@ function RenderHeaderDropdowns() {
         </React.Fragment>
     );
 }
-function RenderTopShortcuts() {
+
+function RenderTopShortcuts({toggleCartModal}) {
     return (
         <div className="top-shortcuts col-12 d-flex justify-content-end ml-0">
             <Link to="./tickets"><i className="fa fa-ticket-alt fa-md" aria-hidden="true"></i>Tickets</Link>
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
-            <a href="#" data-toggle="modal" data-target="#cartModal"><i className="fa fa-shopping-cart fa-md" aria-hidden="true"></i>Cart</a>
+            <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a>
             <a href="#" data-toggle="modal" data-target="#promoCodeModal"><i className="fa fa-tag fa-md" aria-hidden="true"></i><span className="d-none d-md-inline">Promo </span>Code</a>
         </div>
     );
 }
+
 function RenderNavbarToggler() {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
-
     return (
         <React.Fragment>
             <NavbarToggler onClick={toggle} />
@@ -122,33 +128,27 @@ function RenderNavbarToggler() {
     );
 }
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <header className="fixed-top">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="skipBox">
-                            <a className="skipToMainContent" href="#mainContent">Skip To Main Content</a>
-                        </div>
-                        <RenderTopShortcuts />
+function Header({toggleCartModal}) {
+    return (
+        <header className="fixed-top">
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="skipBox">
+                        <a className="skipToMainContent" href="#mainContent">Skip To Main Content</a>
                     </div>
+                    <RenderTopShortcuts toggleCartModal={toggleCartModal}/>
                 </div>
-                <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">
-                    <div className="container-fluid d-flex pl-md-0 pl-lg-3">
-                        <Link to="/home" className="navbar-brand">
-                            <img src="/assets/images/logos/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
-                        </Link>
-                        <RenderNavbarToggler />
-                    </div>
-                </Navbar>
-            </header>
-        );
-    }
+            </div>
+            <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">
+                <div className="container-fluid d-flex pl-md-0 pl-lg-3">
+                    <Link to="/home" className="navbar-brand">
+                        <img src="/assets/images/logos/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
+                    </Link>
+                    <RenderNavbarToggler />
+                </div>
+            </Navbar>
+        </header>
+    );
 }
 
 export default Header;

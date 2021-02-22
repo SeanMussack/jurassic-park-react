@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+//import { connect } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Header from './HeaderComponent';
@@ -19,28 +19,49 @@ import Tickets from './pages/TicketsComponent';
 import SeasonPasses from './pages/SeasonPassesComponent';
 import Groups from "./pages/GroupsComponent";
 import BirthdayParties from "./pages/BirthdayPartiesComponent";
+//import { addToCart, toggleCartModal } from '../redux/ActionCreators';
+import CartModal from './modals/CartModalComponent';
 
+import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
 import { CAFEMENU } from "../shared/cafeMenu";
 
-const mapStateToProps = state => {
+/*const mapStateToProps = state => {
     return {
         dinosaurs: state.dinosaurs,
+        isCartModalOpen: state.isCartModalOpen,
+        cart: state.cart,
     }
 }
 
-/*const mapDispatchToProps = {
-    fetchDinosaurs: () => (fetchDinosaurs()),
+const mapDispatchToProps = {
+//    fetchDinosaurs: () => (fetchDinosaurs()),
+    addToCart: cartItem => (addToCart(cartItem)),
+    toggleCartModal: () => (toggleCartModal()),
 }*/
 
 class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isCartModalOpen: false,
+            cart: [],
+        }
+        this.toggleCartModal = this.toggleCartModal.bind(this);
+    }
+    toggleCartModal() {
+        this.setState({isCartModalOpen: !this.state.isCartModalOpen})
+    }
     /*componentDidMount() {
         this.props.fetchDinosaurs();
     }*/
     render() {
         return (
             <div>
-                <Header />
+                <Header 
+                    //openCartModal={openCartModal}
+                    toggleCartModal={this.toggleCartModal}
+                />
                 <TransitionGroup>
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                         <Switch>
@@ -51,7 +72,7 @@ class Main extends Component {
                             <Route path='/faq' render={() => <FAQ/>} />
                             <Route path='/laboratory' render={() => <Laboratory/>} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
-                            <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={this.props.dinosaurs.dinosaurs} />} />
+                            <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
                             <Route path='/visitor-center' render={() => <VisitorCenter/>} />
                             <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
                             <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
@@ -64,10 +85,16 @@ class Main extends Component {
                     </CSSTransition>
                 </TransitionGroup>
                 <Footer />
+                <CartModal 
+                    isCartModalOpen={this.state.isCartModalOpen} 
+                    cart={this.state.cart} 
+                    toggleCartModal={this.toggleCartModal}
+                />
             </div>
         );
     }
 }
 
 //export default Main;
-export default withRouter(connect(mapStateToProps/*, mapDispatchToProps*/)(Main));
+export default withRouter(Main);
+//export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
