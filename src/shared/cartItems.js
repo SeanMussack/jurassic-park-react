@@ -1,5 +1,6 @@
 export const CARTITEMS = [
     {
+        key: 0,
         nameShort: "One-Day Tickets",
         name: "Regular One-Day Admission",
         subtitle: "Buy Online and Save!",
@@ -16,6 +17,7 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 1,
         nameShort: "Student & Elderly Tickets",
         name: "One-Day Admission: Student & Elderly Discount",
         subtitle: "Special Discount Pricing",
@@ -26,6 +28,7 @@ export const CARTITEMS = [
         price: "164.99",
     },
     {
+        key: 2,
         nameShort: "All-You-Can-Eat",
         name: "One-Day All-You-Can-Eat Pass",
         icon: "fa fa-utensils",
@@ -43,6 +46,7 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 3,
         id: "VIP",
         nameShort: "VIP One-Day Tickets",
         name: "VIP One-Day Admission",
@@ -66,6 +70,7 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 4,
         seasonPass: true,
         nameShort: "Season Pass",
         name: "Season Pass",
@@ -82,6 +87,7 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 5,
         seasonPass: true,
         name: "Season Pass + Unlimited Dining",
         nameShort: "SP + Dining",
@@ -102,6 +108,7 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 6,
         seasonPass: true,
         nameShort: "VIP Season Pass",
         name: "VIP Season Pass",
@@ -127,16 +134,18 @@ export const CARTITEMS = [
         }
     },
     {
+        key: 7,
         name: "Groups of 10 and Up",
         icon: "fa fa-users",
         subtitle: "Come as a Group and Save!",
         text: "Bring the whole family or a group of friends for a day of thrills and adventure! Any group of 10 or more people can buy one-day tickets online and save.",
-        disclaimer: "A minimum of 10 tickets must be purchased.",
+        minimumQuantity: 10,
         textPrice: "Each Ticket Only",
         price: "159.99",
         buttonSrOnly: "Group Tickets",
     },
     {
+        key: 8,
         id: "corporate-events",
         name: "Corporate & Special Events",
         icon: "fa fa-chart-bar",
@@ -147,6 +156,7 @@ export const CARTITEMS = [
         textTelColumn: "Corporate and special events",
     },
     {
+        key: 9,
         name: "Dino-mite Birthday Package",
         icon: "fa fa-birthday-cake",
         subtitle: "Our Best-Value Package!",
@@ -157,6 +167,7 @@ export const CARTITEMS = [
         textTelColumn: "Birthday parties",
     },
     {
+        key: 10,
         name: "VIP Birthday Party Package",
         icon: "far fa-gem",
         text: "In addition to the regular package, you will also receive a free gift for each party guest, as well as the chance to witness the ",

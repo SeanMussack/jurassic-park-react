@@ -51,15 +51,61 @@ class Main extends Component {
         }
         this.toggleCartModal = this.toggleCartModal.bind(this);
         this.addToCart = this.addToCart.bind(this);
+        this.removeFromCart = this.removeFromCart.bind(this);
     }
     toggleCartModal() {
         this.setState({isCartModalOpen: !this.state.isCartModalOpen});
     }
+    compareCartItems(cartItem1, cartItem2) {
+        if (cartItem2 === null) {
+            console.log("cartItem2 === null");
+        }
+        if (cartItem1.key === cartItem2.key) {
+            console.log("return true");
+            return true;
+        } else {
+            console.log("return false");
+            return false;
+        }
+    }
+    increaseQuantity(cartObject, increaseAmount) {
+        cartObject.quantity = cartObject.quantity + increaseAmount;
+    }
     addToCart(cartItem) {
-        this.setState({cart: this.state.cart.concat(cartItem)});
+        const addedQuantity = (
+            (cartItem.minimumQuantity)
+            ? cartItem.minimumQuantity
+            : 1
+        );
+        const foundIndex = this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
+        console.log("foundIndex = " + foundIndex);
+        if (foundIndex > -1) {
+            const foundCartObject = this.state.cart[foundIndex];
+            this.increaseQuantity(foundCartObject, addedQuantity);
+        } else {
+            const newCartObject = {
+                cartItem: cartItem,
+                quantity: addedQuantity
+            }
+            this.setState({cart: this.state.cart.concat(newCartObject)});
+        }
         if (!(this.state.isCartModalOpen)) {
             this.toggleCartModal();
         }
+    }
+    removeFromCart(cartItem) {
+        const index = this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
+        console.log("index = " + index);
+        var newCart = [];
+        if (this.state.cart.length > 1 && index > -1) {
+            (   (index === 0)
+                ? newCart = this.state.cart.slice(1, this.state.cart.length)
+                : newCart = this.state.cart.slice(0, index).concat(this.state.cart.slice(index + 1, this.state.cart.length))
+            )
+        } else if (index === -1) {
+            newCart = this.state.cart;
+        }
+        this.setState({cart: newCart});
     }
     /*componentDidMount() {
         this.props.fetchDinosaurs();
@@ -102,6 +148,8 @@ class Main extends Component {
                     isCartModalOpen={this.state.isCartModalOpen} 
                     cart={this.state.cart} 
                     toggleCartModal={this.toggleCartModal}
+                    removeFromCart={this.removeFromCart}
+                    addToCart={this.addToCart}
                 />
             </div>
         );

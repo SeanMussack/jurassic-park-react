@@ -1,38 +1,89 @@
-import { Component } from 'react';
-import { Modal, ModalHeader, ModalBody, Container, Row, Col } from 'reactstrap';
+import React, { Component } from 'react';
+import { Modal, ModalHeader, ModalBody, Container, Row, Col, Button } from 'reactstrap';
 //import * as ActionTypes from '../../redux/ActionTypes';
 
-class CartModal extends Component {
+class CartItemInModal extends Component {
     constructor(props) {
         super(props);
-        this.RenderCartItem = this.RenderCartItem.bind(this);
-        this.RenderCartItemsList = this.RenderCartItemsList.bind(this);
+        this.RemoveThisItemFromCart = this.RemoveThisItemFromCart.bind(this);
+        this.IncrementThisQuantity = this.IncrementThisQuantity.bind(this);
     }
-    RenderCartItem (item) {
-        return (
-            <Row>
-                <Col xs={8}>
-                    {   (item.nameShort)
-                        ? item.nameShort
-                        : item.name
+    RemoveThisItemFromCart() {
+        return (this.props.removeFromCart(this.props.cartObject.cartItem));
+    }
+    IncrementThisQuantity() {
+        return (this.props.addToCart(this.props.cartObject.cartItem));
+    }
+    render() {
+        return(
+            <Row key={this.props.cartObject.cartItem.key}>
+                <Col xs={6}>
+                    {   (this.props.cartObject.cartItem.nameShort)
+                        ? this.props.cartObject.cartItem.nameShort
+                        : this.props.cartObject.cartItem.name
                     }
                 </Col>
-                <Col xs={4}>
-                    {item.price}
+                <Col xs={3} className="text-right">
+                    {this.props.cartObject.cartItem.price * this.props.cartObject.quantity}
+                </Col>
+                <Col xs={2} className="text-nowrap">
+                    <i className="fa fa-minus fa-xs"></i>
+                    {" " + this.props.cartObject.quantity + " "}
+                    <Button color="link" className="p-0" onClick={this.IncrementThisQuantity}>
+                        <i className="fa fa-plus fa-xs"></i>
+                    </Button>
+                </Col>
+                <Col xs={1}>
+                    <Button color="link" className="p-0 mb-1" onClick={this.RemoveThisItemFromCart}>
+                        <i className="fa fa-times"></i>
+                    </Button>
                 </Col>
             </Row>
         );
     }
-    RenderCartItemsList ({cart}) {
+}
+
+class CartModal extends Component {
+    constructor(props) {
+        super(props);
+    }
+    GetTotal () {
+        var total = 0;
+        for (var i = 0; i < this.props.cart.length; i++) {
+            total = total + (+this.props.cart[i].cartItem.price * this.props.cart[i].quantity);
+        }
+        return total.toFixed(2);
+    }
+    RenderTotal () {
+        return (
+            <Row>
+                <Col xs={6} className="text-right">
+                    <i>Total...</i>
+                </Col>
+                <Col xs={3} className="text-right">
+                    {this.GetTotal()}
+                </Col>
+            </Row>
+        );
+    }
+    RenderCartItemsList () {
         return (
             <Container>
-                {   (this.props.cart)
-                    ? this.props.cart.map((cartItem) => {
-                        return (
-                            this.RenderCartItem(cartItem)
-                        );
-                    })
-                    : "Your cart is empty!"
+                {   (this.props.cart && this.props.cart.length > 0)
+                    ? <React.Fragment>
+                        {this.props.cart.map((cartObject) => {
+                            return (
+                                <CartItemInModal 
+                                    cartObject={cartObject} 
+                                    removeFromCart={this.props.removeFromCart} 
+                                    addToCart={this.props.addToCart}
+                                />
+                            );
+                        })}
+                        <hr/>
+                        {this.RenderTotal()}
+                      </React.Fragment>
+                    : <Row><i className="fa fa-exclamation-triangle" aria-hidden="true"></i><i>Your cart is empty.</i></Row>
                 }
             </Container>
         );
@@ -43,7 +94,12 @@ class CartModal extends Component {
                 isOpen={this.props.isCartModalOpen} 
                 toggle={this.props.toggleCartModal}
             >
-                <ModalHeader toggle={this.props.toggleCartModal}>My Cart</ModalHeader>
+                <ModalHeader 
+                    toggle={this.props.toggleCartModal}
+                    className="bg-warning"
+                >
+                    My Cart
+                </ModalHeader>
                 <ModalBody>
                     {this.RenderCartItemsList(this.props.cart)}
                 </ModalBody>

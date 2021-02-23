@@ -37,6 +37,7 @@ class AddToCartColumn extends Component {
                                 }
                             </span>
                         to Cart
+                        <i className="fa fa-cart-plus"></i>
                     </Button>
                 </div>
             </Col>
@@ -77,7 +78,7 @@ class CartItem extends Component {
     }
     render() {
         return (
-            <Row className="row-content" id={this.props.cartItem.id}>
+            <Row className="row-content" key={this.props.cartItem.key}>
                 <Col md="8" lg={{size: 7, offset: 1}}>
                     <h5>
                         {(this.props.cartItem.icon)
@@ -107,6 +108,13 @@ class CartItem extends Component {
                         }
                     </p>
                     <p className="cart-item-disclaimer">
+                        {(this.props.cartItem.minimumQuantity)
+                            ? <React.Fragment>
+                                {"A minimum of " + this.props.cartItem.minimumQuantity + " tickets must be purchased."}
+                                <br/>
+                            </React.Fragment>
+                            : <React.Fragment/>
+                        }
                         {(this.props.cartItem.disclaimer)
                             ? <React.Fragment>
                                 {this.props.cartItem.disclaimer}
