@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-//import { connect } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Header from './HeaderComponent';
@@ -28,20 +27,6 @@ import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
 import { CAFEMENU } from "../shared/cafeMenu";
 
-/*const mapStateToProps = state => {
-    return {
-        dinosaurs: state.dinosaurs,
-        isCartModalOpen: state.isCartModalOpen,
-        cart: state.cart,
-    }
-}
-
-const mapDispatchToProps = {
-//    fetchDinosaurs: () => (fetchDinosaurs()),
-    addToCart: cartItem => (addToCart(cartItem)),
-    toggleCartModal: () => (toggleCartModal()),
-}*/
-
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -50,11 +35,16 @@ class Main extends Component {
             cart: [],
         }
         this.toggleCartModal = this.toggleCartModal.bind(this);
+        this.findIndex = this.findIndex.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.removeFromCart = this.removeFromCart.bind(this);
+        this.decrementQuantity = this.decrementQuantity.bind(this);
     }
     toggleCartModal() {
         this.setState({isCartModalOpen: !this.state.isCartModalOpen});
+    }
+    findIndex(cartItem) {
+        return this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
     }
     compareCartItems(cartItem1, cartItem2) {
         if (cartItem2 === null) {
@@ -68,8 +58,26 @@ class Main extends Component {
             return false;
         }
     }
-    increaseQuantity(cartObject, increaseAmount) {
-        cartObject.quantity = cartObject.quantity + increaseAmount;
+    increaseQuantity(index, increaseAmount) {
+        const newCartObject = {
+            cartItem: this.state.cart[index].cartItem,
+            quantity: this.state.cart[index].quantity + increaseAmount
+        }
+        const newCart = this.state.cart.slice(0, index).concat(newCartObject).concat(this.state.cart.slice(index + 1, this.state.cart.length));
+        this.setState({cart: newCart});
+    }
+    decrementQuantity(cartItem) {
+        const foundIndex = this.findIndex(cartItem);
+        if (this.state.cart[foundIndex].quantity < 2) {
+            this.removeFromCart(cartItem);
+        } else {
+            const newCartObject = {
+                cartItem: cartItem,
+                quantity: this.state.cart[foundIndex].quantity - 1
+            }
+            const newCart = this.state.cart.slice(0, foundIndex).concat(newCartObject).concat(this.state.cart.slice(foundIndex + 1, this.state.cart.length));
+            this.setState({cart: newCart});
+        }
     }
     addToCart(cartItem) {
         const addedQuantity = (
@@ -77,11 +85,10 @@ class Main extends Component {
             ? cartItem.minimumQuantity
             : 1
         );
-        const foundIndex = this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
+        const foundIndex = this.findIndex(cartItem);
         console.log("foundIndex = " + foundIndex);
         if (foundIndex > -1) {
-            const foundCartObject = this.state.cart[foundIndex];
-            this.increaseQuantity(foundCartObject, addedQuantity);
+            this.increaseQuantity(foundIndex, 1);
         } else {
             const newCartObject = {
                 cartItem: cartItem,
@@ -94,7 +101,7 @@ class Main extends Component {
         }
     }
     removeFromCart(cartItem) {
-        const index = this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
+        const index = this.findIndex(cartItem);
         console.log("index = " + index);
         var newCart = [];
         if (this.state.cart.length > 1 && index > -1) {
@@ -107,14 +114,10 @@ class Main extends Component {
         }
         this.setState({cart: newCart});
     }
-    /*componentDidMount() {
-        this.props.fetchDinosaurs();
-    }*/
     render() {
         return (
             <div>
                 <Header 
-                    //openCartModal={openCartModal}
                     toggleCartModal={this.toggleCartModal}
                 />
                 <TransitionGroup>
@@ -150,6 +153,7 @@ class Main extends Component {
                     toggleCartModal={this.toggleCartModal}
                     removeFromCart={this.removeFromCart}
                     addToCart={this.addToCart}
+                    decrementQuantity={this.decrementQuantity}
                 />
             </div>
         );

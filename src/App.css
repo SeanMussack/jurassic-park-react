@@ -577,3 +577,7 @@ div .download-park-map-button {
   font-size: xx-large;
   border-radius: 7px;
 }
+.modal-body .quantity-column {
+  text-align: center;
+  padding: auto;
+}

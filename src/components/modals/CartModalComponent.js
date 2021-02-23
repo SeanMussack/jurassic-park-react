@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 import { Modal, ModalHeader, ModalBody, Container, Row, Col, Button } from 'reactstrap';
-//import * as ActionTypes from '../../redux/ActionTypes';
 
 class CartItemInModal extends Component {
     constructor(props) {
         super(props);
         this.RemoveThisItemFromCart = this.RemoveThisItemFromCart.bind(this);
         this.IncrementThisQuantity = this.IncrementThisQuantity.bind(this);
+        this.DecrementThisQuantity = this.DecrementThisQuantity.bind(this);
     }
     RemoveThisItemFromCart() {
         return (this.props.removeFromCart(this.props.cartObject.cartItem));
     }
     IncrementThisQuantity() {
         return (this.props.addToCart(this.props.cartObject.cartItem));
+    }
+    DecrementThisQuantity() {
+        return (this.props.decrementQuantity(this.props.cartObject.cartItem));
     }
     render() {
         return(
@@ -24,16 +27,31 @@ class CartItemInModal extends Component {
                     }
                 </Col>
                 <Col xs={3} className="text-right">
-                    {this.props.cartObject.cartItem.price * this.props.cartObject.quantity}
+                    {(this.props.cartObject.cartItem.price * this.props.cartObject.quantity).toFixed(2)}
                 </Col>
-                <Col xs={2} className="text-nowrap">
-                    <i className="fa fa-minus fa-xs"></i>
-                    {" " + this.props.cartObject.quantity + " "}
-                    <Button color="link" className="p-0" onClick={this.IncrementThisQuantity}>
-                        <i className="fa fa-plus fa-xs"></i>
-                    </Button>
+                <Col xs={2} className="text-nowrap quantity-column text-center p-0">
+                    <Container>
+                        <Row>
+                            <Col xs={4} className="p-0">
+                                {(  (this.props.cartObject.quantity > 1)
+                                    ?   <Button color="link" className="p-0" onClick={this.DecrementThisQuantity}>
+                                            <i className="fa fa-minus fa-xs"></i>
+                                        </Button>
+                                    : <React.Fragment/>
+                                )}
+                            </Col>
+                            <Col xs={2} className="p-0">
+                                {" " + this.props.cartObject.quantity + " "}
+                            </Col>
+                            <Col xs={4} className="p-0">
+                                <Button color="link" className="p-0" onClick={this.IncrementThisQuantity}>
+                                    <i className="fa fa-plus fa-xs"></i>
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>
                 </Col>
-                <Col xs={1}>
+                <Col xs={1} className="p-0 text-center">
                     <Button color="link" className="p-0 mb-1" onClick={this.RemoveThisItemFromCart}>
                         <i className="fa fa-times"></i>
                     </Button>
@@ -77,6 +95,7 @@ class CartModal extends Component {
                                     cartObject={cartObject} 
                                     removeFromCart={this.props.removeFromCart} 
                                     addToCart={this.props.addToCart}
+                                    decrementQuantity={this.props.decrementQuantity}
                                 />
                             );
                         })}
