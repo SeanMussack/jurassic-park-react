@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
-import CartModal from './modals/CartModalComponent';
+import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
 
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
@@ -30,89 +30,31 @@ import { CAFEMENU } from "../shared/cafeMenu";
 class Main extends Component {
     constructor(props) {
         super(props);
+        this.props = {
+            toggleCartModal: toggleCartModal,
+            findIndex: findIndex,
+            increaseQuantity: increaseQuantity,
+            decrementQuantity: decrementQuantity,
+            addToCart: addToCart,
+            removeFromCart: removeFromCart,
+            getCartObjectByKey: getCartObjectByKey,
+            checkToCombine: checkToCombine,
+            combineCartObjects: combineCartObjects,
+        }
         this.state = {
             isCartModalOpen: false,
             cart: [],
         }
-        this.toggleCartModal = this.toggleCartModal.bind(this);
-        this.findIndex = this.findIndex.bind(this);
-        this.addToCart = this.addToCart.bind(this);
-        this.removeFromCart = this.removeFromCart.bind(this);
-        this.decrementQuantity = this.decrementQuantity.bind(this);
-    }
-    toggleCartModal() {
-        this.setState({isCartModalOpen: !this.state.isCartModalOpen});
-    }
-    findIndex(cartItem) {
-        return this.state.cart.findIndex((cartObject) => this.compareCartItems(cartItem, cartObject.cartItem));
-    }
-    compareCartItems(cartItem1, cartItem2) {
-        if (cartItem2 === null) {
-            console.log("cartItem2 === null");
-        }
-        if (cartItem1.key === cartItem2.key) {
-            console.log("return true");
-            return true;
-        } else {
-            console.log("return false");
-            return false;
-        }
-    }
-    increaseQuantity(index, increaseAmount) {
-        const newCartObject = {
-            cartItem: this.state.cart[index].cartItem,
-            quantity: this.state.cart[index].quantity + increaseAmount
-        }
-        const newCart = this.state.cart.slice(0, index).concat(newCartObject).concat(this.state.cart.slice(index + 1, this.state.cart.length));
-        this.setState({cart: newCart});
-    }
-    decrementQuantity(cartItem) {
-        const foundIndex = this.findIndex(cartItem);
-        if (this.state.cart[foundIndex].quantity < 2) {
-            this.removeFromCart(cartItem);
-        } else {
-            const newCartObject = {
-                cartItem: cartItem,
-                quantity: this.state.cart[foundIndex].quantity - 1
-            }
-            const newCart = this.state.cart.slice(0, foundIndex).concat(newCartObject).concat(this.state.cart.slice(foundIndex + 1, this.state.cart.length));
-            this.setState({cart: newCart});
-        }
-    }
-    addToCart(cartItem) {
-        const addedQuantity = (
-            (cartItem.minimumQuantity)
-            ? cartItem.minimumQuantity
-            : 1
-        );
-        const foundIndex = this.findIndex(cartItem);
-        console.log("foundIndex = " + foundIndex);
-        if (foundIndex > -1) {
-            this.increaseQuantity(foundIndex, 1);
-        } else {
-            const newCartObject = {
-                cartItem: cartItem,
-                quantity: addedQuantity
-            }
-            this.setState({cart: this.state.cart.concat(newCartObject)});
-        }
-        if (!(this.state.isCartModalOpen)) {
-            this.toggleCartModal();
-        }
-    }
-    removeFromCart(cartItem) {
-        const index = this.findIndex(cartItem);
-        console.log("index = " + index);
-        var newCart = [];
-        if (this.state.cart.length > 1 && index > -1) {
-            (   (index === 0)
-                ? newCart = this.state.cart.slice(1, this.state.cart.length)
-                : newCart = this.state.cart.slice(0, index).concat(this.state.cart.slice(index + 1, this.state.cart.length))
-            )
-        } else if (index === -1) {
-            newCart = this.state.cart;
-        }
-        this.setState({cart: newCart});
+        this.toggleCartModal = toggleCartModal.bind(this);
+        this.findIndex = findIndex.bind(this);
+        this.increaseQuantity = increaseQuantity.bind(this);
+        this.decrementQuantity = decrementQuantity.bind(this);
+        this.addToCart = addToCart.bind(this);
+        this.removeFromCart = removeFromCart.bind(this);
+        this.decrementQuantity = decrementQuantity.bind(this);
+        this.getCartObjectByKey = getCartObjectByKey.bind(this);
+        this.checkToCombine = checkToCombine.bind(this);
+        this.combineCartObjects = combineCartObjects.bind(this);
     }
     render() {
         return (
