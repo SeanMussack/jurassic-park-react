@@ -24,7 +24,7 @@ export function increaseQuantity(index, increaseAmount) {
         quantity: this.state.cart[index].quantity + increaseAmount
     }
     const newCart = this.state.cart.slice(0, index).concat(newCartObject).concat(this.state.cart.slice(index + 1, this.state.cart.length));
-    this.setState({cart: newCart});
+    this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart + increaseAmount});
 //    this.checkToCombine(newCartObject.cartItem);
 }
 export function decrementQuantity(cartItem) {
@@ -37,7 +37,7 @@ export function decrementQuantity(cartItem) {
             quantity: this.state.cart[foundIndex].quantity - 1
         }
         const newCart = this.state.cart.slice(0, foundIndex).concat(newCartObject).concat(this.state.cart.slice(foundIndex + 1, this.state.cart.length));
-        this.setState({cart: newCart});
+        this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart - 1});
 //        this.checkToCombine(cartItem);
     }
 }
@@ -57,7 +57,7 @@ export function addToCart(cartItem, quantityToAdd) {
             cartItem: cartItem,
             quantity: quantityToAdd
         }
-        this.setState({cart: this.state.cart.concat(newCartObject)});
+        this.setState({cart: this.state.cart.concat(newCartObject), numItemsInCart: this.state.numItemsInCart + quantityToAdd});
 //        this.checkToCombine(cartItem);
     }
     if (!(this.state.isCartModalOpen)) {
@@ -76,7 +76,7 @@ export function removeFromCart(cartItem) {
     } else if (index === -1) {
         newCart = this.state.cart;
     }
-    this.setState({cart: newCart});
+    this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart - this.state.cart[index].quantity});
 //    this.checkToCombine(cartItem);
 }
 export function getCartObjectByKey(key) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-import Header from './HeaderComponent';
+import Header, { RenderTopShortcuts } from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
@@ -32,6 +32,7 @@ class Main extends Component {
         super(props);
         this.props = {
             toggleCartModal: toggleCartModal,
+            RenderTopShortcuts: RenderTopShortcuts,
             findIndex: findIndex,
             increaseQuantity: increaseQuantity,
             decrementQuantity: decrementQuantity,
@@ -44,8 +45,10 @@ class Main extends Component {
         this.state = {
             isCartModalOpen: false,
             cart: [],
+            numItemsInCart: 0,
         }
         this.toggleCartModal = toggleCartModal.bind(this);
+        this.RenderTopShortcuts = RenderTopShortcuts.bind(this);
         this.findIndex = findIndex.bind(this);
         this.increaseQuantity = increaseQuantity.bind(this);
         this.decrementQuantity = decrementQuantity.bind(this);
@@ -61,6 +64,7 @@ class Main extends Component {
             <div>
                 <Header 
                     toggleCartModal={this.toggleCartModal}
+                    RenderTopShortcuts={this.RenderTopShortcuts}
                 />
                 <TransitionGroup>
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>

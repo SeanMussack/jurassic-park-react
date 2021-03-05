@@ -99,14 +99,14 @@ function RenderHeaderDropdowns() {
     );
 }
 
-function RenderTopShortcuts({toggleCartModal}) {
+export function RenderTopShortcuts({toggleCartModal}) {
     return (
         <Col xs={12} className="top-shortcuts d-flex justify-content-end ml-0">
             <Link to="./tickets"><i className="fa fa-ticket-alt fa-md" aria-hidden="true"></i>Tickets</Link>
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
-            <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a>
+            <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart ({this.state.numItemsInCart})</a>
             <a href="#" data-toggle="modal" data-target="#promoCodeModal"><i className="fa fa-tag fa-md" aria-hidden="true"></i><span className="d-none d-md-inline">Promo </span>Code</a>
         </Col>
     );
@@ -129,7 +129,7 @@ function RenderNavbarToggler() {
     );
 }
 
-function Header({toggleCartModal}) {
+function Header({toggleCartModal, RenderTopShortcuts}) {
     return (
         <header className="fixed-top">
             <Container fluid>
