@@ -1,4 +1,5 @@
 import React, { Component, useState } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavbarToggler, Collapse, Dropdown, DropdownToggle, DropdownMenu, Button } from 'reactstrap';
 import { PAGES } from "../shared/pages";
@@ -13,7 +14,7 @@ function RenderHeaderLink({page}) {
 
 function RenderHeaderSubcategory({pageCategory, subcategory}) {
     return (
-        <div className="col-md px-0">
+        <Col className="px-0">
             <h4 className="d-none d-md-block">
                 {(subcategory == 1) ? pageCategory.subcategory1 : pageCategory.subcategory0}
             </h4>
@@ -22,7 +23,7 @@ function RenderHeaderSubcategory({pageCategory, subcategory}) {
                     <RenderHeaderLink page={page} />
                 );
             })}
-        </div>
+        </Col>
     );
 }
 
@@ -33,7 +34,7 @@ function RenderFeaturedButton({featured}) {
 }
 function RenderFeatured({featured}) {
     return (
-        <div className="navbar-imgcard col-lg-6 d-none d-lg-block">
+        <Col lg={6} className="navbar-imgcard d-none d-lg-block">
             <div className="media">
                 <img className="d-flex" src={featured.image} alt={featured.alt} />
                 <div className="media-body align-self-center">
@@ -44,17 +45,17 @@ function RenderFeatured({featured}) {
                     </div>
                 </div>
             </div>
-        </div>
+        </Col>
     );
 }
 
 function RenderHeaderCategory({pageCategory}) {
     return (
-        <div className="row">
+        <Row>
             <RenderFeatured featured={FEATURED.filter(featured => featured.category == pageCategory.id)[0]}/>
             <RenderHeaderSubcategory pageCategory={pageCategory} subcategory='0'/>
             <RenderHeaderSubcategory pageCategory={pageCategory} subcategory='1'/>
-        </div>
+        </Row>
     );
 }
 
@@ -100,14 +101,14 @@ function RenderHeaderDropdowns() {
 
 function RenderTopShortcuts({toggleCartModal}) {
     return (
-        <div className="top-shortcuts col-12 d-flex justify-content-end ml-0">
+        <Col xs={12} className="top-shortcuts d-flex justify-content-end ml-0">
             <Link to="./tickets"><i className="fa fa-ticket-alt fa-md" aria-hidden="true"></i>Tickets</Link>
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
             <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart</a>
             <a href="#" data-toggle="modal" data-target="#promoCodeModal"><i className="fa fa-tag fa-md" aria-hidden="true"></i><span className="d-none d-md-inline">Promo </span>Code</a>
-        </div>
+        </Col>
     );
 }
 
@@ -131,21 +132,21 @@ function RenderNavbarToggler() {
 function Header({toggleCartModal}) {
     return (
         <header className="fixed-top">
-            <div className="container-fluid">
-                <div className="row">
+            <Container fluid>
+                <Row>
                     <div className="skipBox">
                         <a className="skipToMainContent" href="#mainContent">Skip To Main Content</a>
                     </div>
                     <RenderTopShortcuts toggleCartModal={toggleCartModal}/>
-                </div>
-            </div>
+                </Row>
+            </Container>
             <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">
-                <div className="container-fluid d-flex pl-md-0 pl-lg-3">
+                <Container fluid className="d-flex pl-md-0 pl-lg-3">
                     <Link to="/home" className="navbar-brand">
                         <img src="/assets/images/logos/Jurassic_Park_logo_name_big.png" height="60" width="auto" />
                     </Link>
                     <RenderNavbarToggler />
-                </div>
+                </Container>
             </Navbar>
         </header>
     );

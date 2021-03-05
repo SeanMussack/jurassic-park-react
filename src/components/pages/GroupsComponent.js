@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap';
 import Jumbotron from "../page-elements/JumbotronComponent";
 import CartItem from "../page-elements/CartItemComponent";
 import { CARTITEMS } from "../../shared/cartItems";
@@ -12,11 +13,11 @@ class SeasonPasses extends Component {
                     subtitle="Reduced pricing available for larger groups"
                     isRightAligned="true"
                 />
-                <div className="container-fluid">
+                <Container fluid>
                     <CartItem cartItem={CARTITEMS[7]} addToCart={this.props.addToCart} />
                     <hr/>
                     <CartItem cartItem={CARTITEMS[8]}/>
-                </div>
+                </Container>
             </div>
         );
     }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap';
 
 class BigPicPage extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class BigPicPage extends Component {
     render() {
         return (
             <div id="mainContent">
-                <div className="container-fluid jumbo-img-container">
+                <Container fluid className="jumbo-img-container">
                     <img 
                         className="jumbo-img-bg img-fluid d-block d-sm-none"
                         src={this.props.bigPicData.srcXs}
@@ -33,7 +34,7 @@ class BigPicPage extends Component {
                         <p className="d-none d-md-block">{this.props.bigPicData.text}</p>
                         <p><i>{this.props.bigPicData.note}</i></p>
                     </div>
-                </div>
+                </Container>
             </div>
         );
     }
