@@ -66,13 +66,15 @@ header {
 .top-shortcuts {
   margin-top: 5px;
 }
-.top-shortcuts a {
+.top-shortcuts a, .top-shortcuts button {
   color:lightgray;
   margin-left: 10px;
+  padding: 0px;
   font-size: small;
   text-align: center;
 }
-.top-shortcuts a:focus {
+.top-shortcuts a:focus, .top-shortcuts button:focus, .top-shortcuts button:hover {
+  color: lightgray;
   text-decoration: underline;
 }
 .top-shortcuts i {
