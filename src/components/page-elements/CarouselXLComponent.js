@@ -11,13 +11,13 @@ import { CAROUSELXL } from '../../shared/carouselXL';
 
 function RenderCarouselHeader ({item}) {
     return (
-        <h3>
+        <React.Fragment>
             {item.captionStart}
             <span className="d-inline d-md-none">{item.captionXS}</span>
             <span className="d-none d-md-inline">{item.captionMD}</span>
             <span className="text-nowrap">{item.captionMiddle}</span>
             <Link className="text-nowrap" to={item.captionLinkSrc}>{item.captionLinkText}</Link>
-        </h3>
+        </React.Fragment>
     );
 }
 
@@ -52,7 +52,7 @@ const CarouselXL = (props) => {
                 key={item.src}
             >
                 <img className="d-block w-100" src={item.src} alt={item.altText} />
-                <CarouselCaption captionText={RenderCarouselHeader({item})}/>
+                <CarouselCaption captionHeader={RenderCarouselHeader({item})} captionText={""}/>
             </CarouselItem>
         );
     });
@@ -64,7 +64,7 @@ const CarouselXL = (props) => {
             next={next}
             previous={previous}
             slide
-            pause="false"
+            pause={false}
             ride="carousel"
         >
             <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />

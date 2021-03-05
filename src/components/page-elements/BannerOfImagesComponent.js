@@ -17,18 +17,15 @@ function RenderImages({images}) {
     return (
         images.map((image) => {
             return (
-                <RenderImage image={image} />
+                <RenderImage image={image} key={images.indexOf(image)}/>
             );
         })
     );
 }
 
 class BannerOfImages extends Component {
-    constructor(props){
-        super(props);
-        this.props = {
-            bannerOfImages: null
-        }
+    static defaultProps = {
+        bannerOfImages: null
     }
     render() {
         return(

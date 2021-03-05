@@ -21,7 +21,7 @@ function RenderHeaderSubcategory({pageCategory, subcategory}) {
             </h4>
             {PAGES.filter(page => page.category == pageCategory.id && page.subcategory == subcategory).map(page => {
                 return (
-                    <RenderHeaderLink page={page} />
+                    <RenderHeaderLink page={page} key={page.name}/>
                 );
             })}
         </Col>
@@ -109,7 +109,7 @@ export function RenderTopShortcuts({toggleCartModal}) {
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
             <Button onClick={toggleCartModal} color="link">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                <span class="text-nowrap">Cart ({this.state.numItemsInCart})</span>
+                <span className="text-nowrap">Cart ({this.state.numItemsInCart})</span>
             </Button>
             <a href="#" data-toggle="modal" data-target="#promoCodeModal"><i className="fa fa-tag fa-md" aria-hidden="true"></i><span className="d-none d-md-inline">Promo </span>Code</a>
         </Col>

@@ -20,7 +20,6 @@ function RenderFooterColumn({pageCategory}) {
     if (pageCategory.nowrap) {
         nowrapClassName = "text-nowrap";
     }
-
     return (
         <Col xs={6} md={3} lg={2} className={(pageCategory.id === 0) ? "d-flex offset-lg-1" : "d-flex"}>
             <div>
@@ -28,7 +27,7 @@ function RenderFooterColumn({pageCategory}) {
                 <ul className="list-unstyled">
                     {PAGES.filter(page => page.category === pageCategory.id).map(page => {
                         return (
-                            <RenderFooterLink page={page} />
+                            <RenderFooterLink page={page} key={PAGES.indexOf(page)} />
                         );
                     })}
                 </ul>
@@ -44,7 +43,7 @@ function Footer(props) {
                 <Row>
                     {PAGECATEGORIES.map(pageCategory => {
                         return (
-                            <RenderFooterColumn pageCategory={pageCategory} />
+                            <RenderFooterColumn pageCategory={pageCategory} key={pageCategory.id} />
                         );
                     })}
                     <Col xs={12} md={4} lg={2} className="stay-connected d-flex ">

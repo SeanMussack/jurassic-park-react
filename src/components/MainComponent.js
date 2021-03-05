@@ -30,18 +30,6 @@ import { CAFEMENU } from "../shared/cafeMenu";
 class Main extends Component {
     constructor(props) {
         super(props);
-        this.props = {
-            toggleCartModal: toggleCartModal,
-            RenderTopShortcuts: RenderTopShortcuts,
-            findIndex: findIndex,
-            increaseQuantity: increaseQuantity,
-            decrementQuantity: decrementQuantity,
-            addToCart: addToCart,
-            removeFromCart: removeFromCart,
-            getCartObjectByKey: getCartObjectByKey,
-            checkToCombine: checkToCombine,
-            combineCartObjects: combineCartObjects,
-        }
         this.state = {
             isCartModalOpen: false,
             cart: [],
@@ -58,6 +46,18 @@ class Main extends Component {
         this.getCartObjectByKey = getCartObjectByKey.bind(this);
         this.checkToCombine = checkToCombine.bind(this);
         this.combineCartObjects = combineCartObjects.bind(this);
+    }
+    static defaultProps = {
+        toggleCartModal: toggleCartModal,
+        RenderTopShortcuts: RenderTopShortcuts,
+        findIndex: findIndex,
+        increaseQuantity: increaseQuantity,
+        decrementQuantity: decrementQuantity,
+        addToCart: addToCart,
+        removeFromCart: removeFromCart,
+        getCartObjectByKey: getCartObjectByKey,
+        checkToCombine: checkToCombine,
+        combineCartObjects: combineCartObjects,
     }
     render() {
         return (

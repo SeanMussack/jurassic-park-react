@@ -5,11 +5,8 @@ const telText = "1-800-555-DINO";
 const telIcon = "fa fa-phone";
 
 class TelephoneLink extends Component {
-    constructor(props) {
-        super(props);
-        this.props = {
-            hideIcon: false,
-        }
+    static defaultProps = {
+        hideIcon: false,
     }
     render() {
         return (

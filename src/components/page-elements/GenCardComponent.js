@@ -3,12 +3,9 @@ import { Card, CardBody, CardText, CardImg, Button } from "reactstrap";
 import { Link } from 'react-router-dom';
 
 class GenCard extends Component {
-    constructor(props) {
-        super(props);
-        this.props = {
-            cardType: null,
-            cardData: null
-        }
+    static defaultProps = {
+        cardType: null,
+        cardData: null
     }
     render() {
         return (
@@ -44,13 +41,13 @@ class GenCard extends Component {
                             : <React.Fragment/>
                         )}
                         {(  (this.props.cardData.text2)
-                            ? <p><br/>{this.props.cardData.text2}</p>
+                            ? <React.Fragment><br/>{this.props.cardData.text2}</React.Fragment>
                             : <React.Fragment/>
                         )}
                     </CardText>
                 </CardBody>
                 {(  (this.props.cardData.buttonSrOnly)
-                    ? <div class="d-flex justify-content-end">
+                    ? <div className="d-flex justify-content-end">
                         <Button color="danger" href={(this.props.cardData.href)}>
                             Learn More<span className="sr-only">{this.props.cardData.buttonSrOnly}</span>
                         </Button>
