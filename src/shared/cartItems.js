@@ -9,7 +9,7 @@ export const CARTITEMS = [
         textLink: "boat",
         href: "/getting-here#boat",
         textPrice: "Buy Online for Only",
-        price: "189.99",
+        price: 189.99,
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -25,7 +25,7 @@ export const CARTITEMS = [
         text: "Students with a valid student ID and seniors over the age of 65 are eligible for discounted pricing.",
         disclaimer: "A valid student ID or proof of age must be presented to confirm discount.",
         textPrice: "Buy Online for Only",
-        price: "164.99",
+        price: 164.99,
     },
     {
         key: 2,
@@ -37,7 +37,7 @@ export const CARTITEMS = [
         href: "/cafe",
         disclaimer: "Valid only at the Cretaceous Cafe.",
         textPrice: "Add to Your Ticket for Only",
-        price: "59.99",
+        price: 59.99,
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -58,7 +58,7 @@ export const CARTITEMS = [
         textLink2: "Miracle of Birth at the Laboratory",
         href2: "/laboratory#hatchery",
         textPrice: "Buy Online for",
-        price: "349.99",
+        price: 349.99,
         benefits: {
             "access": true,
             "dinosaurs": true,
@@ -78,7 +78,7 @@ export const CARTITEMS = [
         icon: "fa fa-address-card",
         text: "Why pay for tickets again and again when you can pay all at once and save? Our Season Pass is available for the entire 1993 season, barring unforseen closure or catastrophe.",
         textPrice: "12 Months of Visits Only",
-        price: "949.95",
+        price: 949.95,
         equivalentVisits: 5,
         benefits: {
             "access": true,
@@ -98,7 +98,7 @@ export const CARTITEMS = [
         textLink: "Cretaceous Cafe",
         href: "/cafe",
         textPrice: "12 Months of Visits & Dining Only",
-        price: "1,249.90",
+        price: 1249.90,
         equivalentVisits: 5,
         benefits: {
             "access": true,
@@ -120,7 +120,7 @@ export const CARTITEMS = [
         textLink2: "Miracle of Birth at the Laboratory",
         href2: "/laboratory#hatchery",
         textPrice: "12 Months of VIP Access",
-        price: "1,749.95",
+        price: 1749.95,
         equivalentVisits: 5,
         buttonSrOnly: "VIP Season Pass",
         benefits: {
@@ -141,7 +141,7 @@ export const CARTITEMS = [
         text: "Bring the whole family or a group of friends for a day of thrills and adventure! Any group of 10 or more people can buy one-day tickets online and save.",
         minimumQuantity: 10,
         textPrice: "Each Ticket Only",
-        price: "159.99",
+        price: 159.99,
         buttonSrOnly: "Group Tickets",
     },
     {

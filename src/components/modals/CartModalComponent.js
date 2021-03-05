@@ -25,7 +25,7 @@ export function increaseQuantity(index, increaseAmount) {
     }
     const newCart = this.state.cart.slice(0, index).concat(newCartObject).concat(this.state.cart.slice(index + 1, this.state.cart.length));
     this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart + increaseAmount});
-//    this.checkToCombine(newCartObject.cartItem);
+    this.checkToCombine(newCartObject.cartItem);
 }
 export function decrementQuantity(cartItem) {
     const foundIndex = this.findIndex(cartItem);
@@ -38,7 +38,7 @@ export function decrementQuantity(cartItem) {
         }
         const newCart = this.state.cart.slice(0, foundIndex).concat(newCartObject).concat(this.state.cart.slice(foundIndex + 1, this.state.cart.length));
         this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart - 1});
-//        this.checkToCombine(cartItem);
+        this.checkToCombine(cartItem);
     }
 }
 export function addToCart(cartItem, quantityToAdd) {
@@ -58,7 +58,7 @@ export function addToCart(cartItem, quantityToAdd) {
             quantity: quantityToAdd
         }
         this.setState({cart: this.state.cart.concat(newCartObject), numItemsInCart: this.state.numItemsInCart + quantityToAdd});
-//        this.checkToCombine(cartItem);
+        this.checkToCombine(cartItem);
     }
     if (!(this.state.isCartModalOpen)) {
         this.toggleCartModal();
@@ -77,9 +77,9 @@ export function removeFromCart(cartItem) {
         newCart = this.state.cart;
     }
     this.setState({cart: newCart, numItemsInCart: this.state.numItemsInCart - this.state.cart[index].quantity});
-//    this.checkToCombine(cartItem);
+    this.checkToCombine(cartItem);
 }
-export function getCartObjectByKey(key) {
+export function getCartObjectByKey(key) {//error: getting the state always gets it "one step behind" without the added/removed item accounted for
     const thisCartObject = this.state.cart.filter((cartObject) => {
         return (cartObject.cartItem.key === key);
     })[0];
@@ -96,12 +96,14 @@ function getCartItemByKey(key) {
     });
 }
 export function checkToCombine(cartItem) {
+    console.log("checkToCombine");
     const regTicketKey = 0;
     const groupTicketKey = 7;
     if (cartItem.key === regTicketKey || cartItem.key === groupTicketKey){
-        const regTicketObject = this.props.getCartObjectByKey(regTicketKey);
-        const groupTicketObject = this.props.getCartObjectByKey(groupTicketKey);
+        const regTicketObject = this.getCartObjectByKey(regTicketKey);
+        const groupTicketObject = this.getCartObjectByKey(groupTicketKey);
         if ((regTicketObject) && (groupTicketObject)) {
+            console.log("regTicketObject = " + regTicketObject + "; groupTicketObject = " + groupTicketObject);
             if (regTicketObject.quantity + groupTicketObject.quantity >= groupTicketObject.cartItem.minimumQuantity) {
                 console.log("Case 1: the total is above the minimum");
 //                this.combineCartObjects(groupTicketObject, regTicketObject);
@@ -118,7 +120,7 @@ export function checkToCombine(cartItem) {
                 return true;
             }
             else {
-                console.log("groupTicketObject.quantity = " + groupTicketObject.quantity);
+                console.log("Case 5: groupTicketObject.quantity = " + groupTicketObject.quantity);
             }
         } else if (regTicketObject) {
             const groupCartItem = getCartItemByKey(groupTicketKey).minimumQuantity;
@@ -126,6 +128,8 @@ export function checkToCombine(cartItem) {
                 console.log("Case 4: only regTicketObject, which meets the minimum (" + regTicketObject.quantity + ">=" + groupCartItem + ")");
 //                this.props.addToCart(getCartItemByKey(groupTicketKey), regTicketObject.quantity);
                 return true;
+            } else {
+                console.log("Case 6: only regTicketObject, which is less than minimum");
             }
         }
     } 
