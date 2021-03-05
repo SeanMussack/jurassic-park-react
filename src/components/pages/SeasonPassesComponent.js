@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import Jumbotron from "../page-elements/JumbotronComponent";
 import CartItem from "../page-elements/CartItemComponent";
 import TableOfBenefits from "../page-elements/TableOfBenefitsComponent";
@@ -14,7 +14,7 @@ class SeasonPasses extends Component {
                     subtitle="Experience the fun all year long"
                     isRightAligned="true"
                 />
-                <div className="container-fluid">
+                <Container fluid>
                     {CARTITEMS.slice(4, 7).map((item) => {
                         return (
                             <React.Fragment>
@@ -23,17 +23,17 @@ class SeasonPasses extends Component {
                             </React.Fragment>
                         );
                     })}
-                </div>
-                <Row className="row-content">
-                    <Col xl={{size: 10, offset: 1}}>
-                        <TableOfBenefits
-                            cartItem1={CARTITEMS[4]}
-                            cartItem2={CARTITEMS[5]}
-                            cartItem3={CARTITEMS[6]}
-                            isSeasonPass={true}
-                        />
-                    </Col>
-                </Row>
+                    <Row className="row-content d-none d-md-block">
+                        <Col xl={{size: 10, offset: 1}}>
+                            <TableOfBenefits
+                                cartItem1={CARTITEMS[4]}
+                                cartItem2={CARTITEMS[5]}
+                                cartItem3={CARTITEMS[6]}
+                                isSeasonPass={true}
+                            />
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         );
     }

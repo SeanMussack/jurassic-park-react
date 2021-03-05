@@ -58,7 +58,7 @@ class Main extends Component {
     }
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Header 
                     toggleCartModal={this.toggleCartModal}
                 />
@@ -67,22 +67,22 @@ class Main extends Component {
                         <Switch>
                             <Route exact path='/' component={Home} />
                             <Route path='/home' component={Home} />
-                            <Route path='/calendar-and-hours' render={() => <Calendar/>} />
-                            <Route path='/getting-here' render={() => <GettingHere/>} />
+                            <Route path='/calendar-and-hours' component={Calendar} />
+                            <Route path='/getting-here' component={GettingHere} />
                             <Route path='/accessibility' component={Accessibility} />
-                            <Route path='/jobs' render={() => <Jobs/>} />
-                            <Route path='/faq' render={() => <FAQ/>} />
-                            <Route path='/laboratory' render={() => <Laboratory/>} />
+                            <Route path='/jobs' component={Jobs} />
+                            <Route path='/faq' component={FAQ} />
+                            <Route path='/laboratory' component={Laboratory} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
                             <Route path='/gift-shop' component={GiftShop} />
                             <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
-                            <Route path='/visitor-center' render={() => <VisitorCenter/>} />
+                            <Route path='/visitor-center' component={VisitorCenter} />
                             <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
                             <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
                             <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
                             <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
                             <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
-                            <Route path='/birthday-parties' render={() => <BirthdayParties />} />
+                            <Route path='/birthday-parties' component={BirthdayParties} />
                             <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
                             <Redirect to='/404' />
                         </Switch>
@@ -97,11 +97,10 @@ class Main extends Component {
                     addToCart={this.addToCart}
                     decrementQuantity={this.decrementQuantity}
                 />
-            </div>
+            </React.Fragment>
         );
     }
 }
 
-//export default Main;
 export default withRouter(Main);
 //export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

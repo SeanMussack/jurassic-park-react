@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 function RenderImage({image}) {
     return (
@@ -32,7 +32,7 @@ class BannerOfImages extends Component {
     }
     render() {
         return(
-            <div className="banner container-fluid">
+            <Container fluid className="banner">
                 <Row>
                     <Col lg={{size: 8, offset: 2}}>
                         <Row className="align-items-center">
@@ -47,7 +47,7 @@ class BannerOfImages extends Component {
                         </Row>
                     </Col>
                 </Row>
-            </div>
+            </Container>
         );
     }
 }

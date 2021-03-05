@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container } from 'reactstrap';
 import Jumbotron from "../page-elements/JumbotronComponent";
 import CartItem from "../page-elements/CartItemComponent";
 import { CARTITEMS } from "../../shared/cartItems";
@@ -12,11 +13,11 @@ class BirthdayParties extends Component {
                     subtitle="Get the coolest party since the dawn of time"
                     isRightAligned="true"
                 />
-                <div className="container-fluid">
+                <Container fluid>
                     <CartItem cartItem={CARTITEMS[9]}/>
                     <hr/>
                     <CartItem cartItem={CARTITEMS[10]}/>
-                </div>
+                </Container>
             </div>
         );
     }
