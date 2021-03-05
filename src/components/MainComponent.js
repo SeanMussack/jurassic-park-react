@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
-//import { connect } from 'react-redux';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
-import CartModal from './modals/CartModalComponent';
+import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
 
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
@@ -28,47 +27,39 @@ import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
 import { CAFEMENU } from "../shared/cafeMenu";
 
-/*const mapStateToProps = state => {
-    return {
-        dinosaurs: state.dinosaurs,
-        isCartModalOpen: state.isCartModalOpen,
-        cart: state.cart,
-    }
-}
-
-const mapDispatchToProps = {
-//    fetchDinosaurs: () => (fetchDinosaurs()),
-    addToCart: cartItem => (addToCart(cartItem)),
-    toggleCartModal: () => (toggleCartModal()),
-}*/
-
 class Main extends Component {
     constructor(props) {
         super(props);
+        this.props = {
+            toggleCartModal: toggleCartModal,
+            findIndex: findIndex,
+            increaseQuantity: increaseQuantity,
+            decrementQuantity: decrementQuantity,
+            addToCart: addToCart,
+            removeFromCart: removeFromCart,
+            getCartObjectByKey: getCartObjectByKey,
+            checkToCombine: checkToCombine,
+            combineCartObjects: combineCartObjects,
+        }
         this.state = {
             isCartModalOpen: false,
             cart: [],
         }
-        this.toggleCartModal = this.toggleCartModal.bind(this);
-        this.addToCart = this.addToCart.bind(this);
+        this.toggleCartModal = toggleCartModal.bind(this);
+        this.findIndex = findIndex.bind(this);
+        this.increaseQuantity = increaseQuantity.bind(this);
+        this.decrementQuantity = decrementQuantity.bind(this);
+        this.addToCart = addToCart.bind(this);
+        this.removeFromCart = removeFromCart.bind(this);
+        this.decrementQuantity = decrementQuantity.bind(this);
+        this.getCartObjectByKey = getCartObjectByKey.bind(this);
+        this.checkToCombine = checkToCombine.bind(this);
+        this.combineCartObjects = combineCartObjects.bind(this);
     }
-    toggleCartModal() {
-        this.setState({isCartModalOpen: !this.state.isCartModalOpen});
-    }
-    addToCart(cartItem) {
-        this.setState({cart: this.state.cart.concat(cartItem)});
-        if (!(this.state.isCartModalOpen)) {
-            this.toggleCartModal();
-        }
-    }
-    /*componentDidMount() {
-        this.props.fetchDinosaurs();
-    }*/
     render() {
         return (
             <div>
                 <Header 
-                    //openCartModal={openCartModal}
                     toggleCartModal={this.toggleCartModal}
                 />
                 <TransitionGroup>
@@ -102,6 +93,9 @@ class Main extends Component {
                     isCartModalOpen={this.state.isCartModalOpen} 
                     cart={this.state.cart} 
                     toggleCartModal={this.toggleCartModal}
+                    removeFromCart={this.removeFromCart}
+                    addToCart={this.addToCart}
+                    decrementQuantity={this.decrementQuantity}
                 />
             </div>
         );
