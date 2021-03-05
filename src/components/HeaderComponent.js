@@ -106,7 +106,7 @@ export function RenderTopShortcuts({toggleCartModal}) {
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
-            <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i>Cart ({this.state.numItemsInCart})</a>
+            <a onClick={toggleCartModal} href="#" data-toggle="modal"><i className="fa fa-shopping-cart" aria-hidden="true"></i><span class="text-nowrap">Cart ({this.state.numItemsInCart})</span></a>
             <a href="#" data-toggle="modal" data-target="#promoCodeModal"><i className="fa fa-tag fa-md" aria-hidden="true"></i><span className="d-none d-md-inline">Promo </span>Code</a>
         </Col>
     );
