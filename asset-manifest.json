@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/jurassic-park-react/static/css/main.7aa5c362.chunk.css",
-    "main.js": "/jurassic-park-react/static/js/main.dced45da.chunk.js",
-    "main.js.map": "/jurassic-park-react/static/js/main.dced45da.chunk.js.map",
+    "main.js": "/jurassic-park-react/static/js/main.a2528601.chunk.js",
+    "main.js.map": "/jurassic-park-react/static/js/main.a2528601.chunk.js.map",
     "runtime-main.js": "/jurassic-park-react/static/js/runtime-main.c3805840.js",
     "runtime-main.js.map": "/jurassic-park-react/static/js/runtime-main.c3805840.js.map",
     "static/css/2.bfa6f4f9.chunk.css": "/jurassic-park-react/static/css/2.bfa6f4f9.chunk.css",
@@ -22,6 +22,6 @@
     "static/css/2.bfa6f4f9.chunk.css",
     "static/js/2.f5ed4daf.chunk.js",
     "static/css/main.7aa5c362.chunk.css",
-    "static/js/main.dced45da.chunk.js"
+    "static/js/main.a2528601.chunk.js"
   ]
 }
