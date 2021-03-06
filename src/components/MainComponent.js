@@ -27,8 +27,6 @@ import { DINOSAURS } from '../shared/dinosaurs';
 import { BIGPICPAGEDATA } from "../shared/bigPicPageData";
 import { CAFEMENU } from "../shared/cafeMenu";
 
-const baseURL = "/jurassic-park-react";
-
 class Main extends Component {
     constructor(props) {
         super(props);
@@ -71,26 +69,26 @@ class Main extends Component {
                 <TransitionGroup>
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                         <Switch>
-                            <Route exact path={baseURL + '/'} component={Home} />
-                            <Route path={baseURL + '/home'} component={Home} />
-                            <Route path={baseURL + '/calendar-and-hours'} render={() => <Calendar/>} />
-                            <Route path={baseURL + '/getting-here'} render={() => <GettingHere/>} />
-                            <Route path={baseURL + '/accessibility'} component={Accessibility} />
-                            <Route path={baseURL + '/jobs'} render={() => <Jobs/>} />
-                            <Route path={baseURL + '/faq'} render={() => <FAQ/>} />
-                            <Route path={baseURL + '/laboratory'} render={() => <Laboratory/>} />
-                            <Route path={baseURL + '/cafe'} render={() => <Cafe cafeMenu={CAFEMENU} />} />
-                            <Route path={baseURL + '/gift-shop'} component={GiftShop} />
-                            <Route path={baseURL + '/dinosaurs'} render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
-                            <Route path={baseURL + '/visitor-center'} render={() => <VisitorCenter/>} />
-                            <Route path={baseURL + '/park-gate'} render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
-                            <Route path={baseURL + '/waterfalls'} render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
-                            <Route path={baseURL + '/tickets'} render={() => <Tickets addToCart={this.addToCart} />} />
-                            <Route path={baseURL + '/season-passes'} render={() => <SeasonPasses addToCart={this.addToCart} />} />
-                            <Route path={baseURL + '/groups'} render={() => <Groups addToCart={this.addToCart} />} />
-                            <Route path={baseURL + '/birthday-parties'} render={() => <BirthdayParties />} />
-                            <Route path={baseURL + '/404'} render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
-                            <Redirect to={baseURL + '/404'} />
+                            <Route exact path='/' component={Home} />
+                            <Route path='/home' component={Home} />
+                            <Route path='/calendar-and-hours' render={() => <Calendar/>} />
+                            <Route path='/getting-here' render={() => <GettingHere/>} />
+                            <Route path='/accessibility' component={Accessibility} />
+                            <Route path='/jobs' render={() => <Jobs/>} />
+                            <Route path='/faq' render={() => <FAQ/>} />
+                            <Route path='/laboratory' render={() => <Laboratory/>} />
+                            <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
+                            <Route path='/gift-shop' component={GiftShop} />
+                            <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
+                            <Route path='/visitor-center' render={() => <VisitorCenter/>} />
+                            <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
+                            <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
+                            <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
+                            <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
+                            <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
+                            <Route path='/birthday-parties' render={() => <BirthdayParties />} />
+                            <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
+                            <Redirect to='/404' />
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
