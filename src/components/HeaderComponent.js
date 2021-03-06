@@ -71,15 +71,30 @@ function RenderNavItemLgAndUp({pageCategory}) {
 
 function RenderHeaderDropdown({pageCategory}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
+    const showDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    }
+    const hideDropdown = () => {
+        setDropdownOpen(false);
+    }
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
     return (
-        <Dropdown className="nav-item col-md px-0" isOpen={dropdownOpen} toggle={toggle}>
-            <DropdownToggle caret className={"align-self-md-stretch pt-md-3 pb-md-4 mt-md-2 px-2 px-md-2 px-lg-4 px-xl-5 w-100" 
-                + (pageCategory.id == 0 ? " ml-md-1" : "") 
-                + (pageCategory.id == 3 ? " pr-md-3" : "")
-            }>
+        <Dropdown 
+            className="nav-item col-md px-0" 
+            isOpen={dropdownOpen} 
+            toggle={toggle}
+            onMouseEnter={showDropdown}
+            onMouseLeave={hideDropdown}
+            onClick={hideDropdown}
+        >
+            <DropdownToggle 
+                caret 
+                className={"align-self-md-stretch pt-md-3 pb-md-4 mt-md-2 px-2 px-md-2 px-lg-4 px-xl-5 w-100" 
+                    + (pageCategory.id == 0 ? " ml-md-1" : "") 
+                    + (pageCategory.id == 3 ? " pr-md-3" : "")
+                }
+            >
                 {pageCategory.name}
                 <RenderNavItemLgAndUp pageCategory={pageCategory}/>
             </DropdownToggle>
