@@ -90,7 +90,7 @@ class Main extends Component {
                             <Route path={baseURL + '/groups'} render={() => <Groups addToCart={this.addToCart} />} />
                             <Route path={baseURL + '/birthday-parties'} render={() => <BirthdayParties />} />
                             <Route path={baseURL + '/404'} render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
-                            <Redirect to='/404'} />
+                            <Redirect to={baseURL + '/404'} />
                         </Switch>
                     </CSSTransition>
                 </TransitionGroup>
