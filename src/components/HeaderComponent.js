@@ -86,7 +86,6 @@ function RenderHeaderDropdown({pageCategory}) {
             toggle={toggle}
             onMouseEnter={showDropdown}
             onMouseLeave={hideDropdown}
-            onClick={hideDropdown}
         >
             <DropdownToggle 
                 caret 
@@ -98,7 +97,7 @@ function RenderHeaderDropdown({pageCategory}) {
                 {pageCategory.name}
                 <RenderNavItemLgAndUp pageCategory={pageCategory}/>
             </DropdownToggle>
-            <DropdownMenu className="w-100">
+            <DropdownMenu className="w-100" onClick={hideDropdown}>
                 <RenderHeaderCategory pageCategory={pageCategory} />
             </DropdownMenu>
         </Dropdown>

@@ -94,6 +94,16 @@ header {
       min-width: max-content;
   }
 }
+.nav-item button {
+  border-radius: 0%;
+}
+.navbar-collapse .nav-item button:hover, 
+.navbar-collapse .nav-item button:focus, 
+.navbar-collapse .nav-item button:active {
+  box-shadow: none;
+  border: none;
+  background-color: black;
+}
 .dropdown-toggle {
   text-transform: uppercase;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
