@@ -9,16 +9,20 @@ class RenderInfoAccordionCard extends Component {
         super(props);
         this.props = {
             cardData: null,
-        }
-        this.state = {
-            isCardOpen: false
+            isCardOpen: false,
+            setOpenCard: null,
         }
         this.toggleCard = this.toggleCard.bind(this);
     }
     toggleCard() {
-        this.setState({
+/*        this.setState({
             isCardOpen: !this.state.isCardOpen
-        })
+        })*/
+        if (this.props.isCardOpen) {
+            this.props.setOpenCard();
+        } else {
+            this.props.setOpenCard(this.props.cardData);
+        }
     }
     render() {
         return (
@@ -34,10 +38,10 @@ class RenderInfoAccordionCard extends Component {
                             ? <span className="d-none d-md-inline">{this.props.cardData.titleMdAndUp}</span>
                             : <React.Fragment/>
                         )}
-                        <i className={(this.state.isCardOpen ? "fa fa-minus" : "fa fa-plus") + " d-none d-sm-block"} aria-hidden="true"></i>
+                        <i className={(this.props.isCardOpen ? "fa fa-minus" : "fa fa-plus") + " d-none d-sm-block"} aria-hidden="true"></i>
                     </h3>
                 </CardHeader>
-                <Collapse isOpen={this.state.isCardOpen}>
+                <Collapse isOpen={this.props.isCardOpen}>
                     <CardBody>
                         <p>
                             {   (this.props.cardData.italic)
@@ -58,6 +62,21 @@ class InfoAccordion extends Component {
         this.props = {
             data: null
         }
+        this.state = {
+            collapse: -1,
+        }
+        this.setOpenCard = this.setOpenCard.bind(this);
+    }
+    setOpenCard(cardData) {
+        if (cardData) {
+            this.setState({
+                collapse: cardData.key
+            })
+        } else {
+            this.setState({
+                collapse: -1
+            })
+        }
     }
     render() {
         return (
@@ -66,7 +85,11 @@ class InfoAccordion extends Component {
                     {this.props.data.cards.map((cardData) => {
                         return (
                             <Fade in key={cardData.key}>
-                                <RenderInfoAccordionCard cardData={cardData}/>
+                                <RenderInfoAccordionCard 
+                                    cardData={cardData} 
+                                    isCardOpen={this.state.collapse === cardData.key}
+                                    setOpenCard={this.setOpenCard}
+                                />
                             </Fade>
                         );
                     })}
