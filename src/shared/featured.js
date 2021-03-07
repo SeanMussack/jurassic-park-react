@@ -34,7 +34,7 @@ export const FEATURED = [
         title: "Have a Dino-mite Birthday",
         link: "/birthday-parties",
         image: "/assets/images/thumbnails/birthday-thumbnail.png",
-        alt: "A guest looking at several birthday cakes and other desserts",
+        alt: "Several cakes and other desserts",
         text: "Get the coolest birthday party since the dawn of time! With optional free gifts and special VIP packages, you'll have everything you need to enjoy your special day.",
         buttonText: 'Book',
         buttonTextSrOnly: ' Your Birthday Party',
