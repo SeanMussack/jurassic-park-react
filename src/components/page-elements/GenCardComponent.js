@@ -48,9 +48,9 @@ class GenCard extends Component {
                 </CardBody>
                 {(  (this.props.cardData.buttonSrOnly)
                     ? <div className="d-flex justify-content-end">
-                        <Button color="danger" href={(this.props.cardData.href)}>
+                        <Link className="btn btn-danger" to={this.props.cardData.href}>
                             Learn More<span className="sr-only">{this.props.cardData.buttonSrOnly}</span>
-                        </Button>
+                        </Link>
                     </div>
                     : <div></div>
                 )}

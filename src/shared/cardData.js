@@ -65,6 +65,7 @@ export const CARDDATA = [
         text: "Plan your trip in advance by buying your tickets online today! General admission includes the price of ferry rides both to and from the island.",
         text2: "Student and elderly discounts are available, as are optional dining and VIP packages.",
         buttonSrOnly: " about tickets",
+        href: "/tickets",
     },
     {
         key: 8,
@@ -74,6 +75,7 @@ export const CARDDATA = [
         text: "Come as a group of 10 or more and save! Grab your friends and family for an adventure they'll never forget.",
         text2: "Corporate and special events are available to book upon request.",
         buttonSrOnly: " about group pricing",
+        href: "/groups",
     },
     {
         key: 9,
@@ -83,5 +85,6 @@ export const CARDDATA = [
         text: "Pay for the whole year and enjoy Jurassic Park again and again!",
         text2: "Season passes are valid for 12 months. Dining and VIP packages also available.",
         buttonSrOnly: " about season passes",
+        href: "/season-passes",
     },
 ]
