@@ -12,6 +12,7 @@ import GettingHere from './pages/GettingHereComponent';
 import Accessibility from './pages/AccessibilityComponent';
 import Jobs from './pages/JobsComponent';
 import FAQ from './pages/FAQComponent';
+import IslandTour from './pages/IslandTourComponent';
 import Laboratory from "./pages/LaboratoryComponent";
 import Cafe from "./pages/CafeComponent";
 import GiftShop from './pages/GiftShopComponent';
@@ -76,6 +77,7 @@ class Main extends Component {
                             <Route path='/accessibility' component={Accessibility} />
                             <Route path='/jobs' render={() => <Jobs/>} />
                             <Route path='/faq' render={() => <FAQ/>} />
+                            <Route path='/island-tour' component={IslandTour} />
                             <Route path='/laboratory' render={() => <Laboratory/>} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
                             <Route path='/gift-shop' component={GiftShop} />
