@@ -6,6 +6,7 @@ import Header, { RenderTopShortcuts } from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
+import PrivacyPolicy from './pages/PrivacyPolicyComponent';
 
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
@@ -89,6 +90,7 @@ class Main extends Component {
                             <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
                             <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
                             <Route path='/birthday-parties' render={() => <BirthdayParties />} />
+                            <Route path='/privacy-policy' component={PrivacyPolicy} />
                             <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
                             <Redirect to='/404' />
                         </Switch>
