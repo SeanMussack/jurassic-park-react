@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavbarToggler, Collapse, 
     Dropdown, DropdownToggle, DropdownMenu, 
     Container, Row, Col, Button } from 'reactstrap';
+import EmailModal from '../components/modals/EmailModalComponent';
 import { PAGES } from "../shared/pages";
 import { PAGECATEGORIES } from "../shared/pageCategories";
 import { FEATURED } from "../shared/featured";
@@ -114,13 +115,17 @@ function RenderHeaderDropdowns() {
     );
 }
 
-export function RenderTopShortcuts({toggleCartModal}) {
+export function RenderTopShortcuts({toggleEmailModal, toggleCartModal}) {
     return (
         <Col xs={12} className="top-shortcuts d-flex justify-content-end ml-0">
             <Link to="./tickets"><i className="fa fa-ticket-alt fa-md" aria-hidden="true"></i>Tickets</Link>
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
             <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
+            <Button onClick={toggleEmailModal} color="link">
+                <i className="fa fa-envelope fa-md" aria-hidden="true"></i>
+                Email<span className="d-none d-md-inline"> Sign-up</span>
+            </Button>
             <Button onClick={toggleCartModal} color="link">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span className="text-nowrap">Cart ({this.state.numItemsInCart})</span>
@@ -147,7 +152,7 @@ function RenderNavbarToggler() {
     );
 }
 
-function Header({toggleCartModal, RenderTopShortcuts}) {
+function Header({toggleEmailModal, toggleCartModal, RenderTopShortcuts}) {
     return (
         <header className="fixed-top">
             <Container fluid>
@@ -155,7 +160,7 @@ function Header({toggleCartModal, RenderTopShortcuts}) {
                     <div className="skipBox">
                         <a className="skipToMainContent" href="#mainContent">Skip To Main Content</a>
                     </div>
-                    <RenderTopShortcuts toggleCartModal={toggleCartModal}/>
+                    <RenderTopShortcuts toggleEmailModal={toggleEmailModal} toggleCartModal={toggleCartModal}/>
                 </Row>
             </Container>
             <Navbar dark expand="md" className="px-0 pr-xl-3 pb-1 pb-md-0">

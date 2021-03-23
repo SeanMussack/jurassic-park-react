@@ -5,6 +5,7 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import Header, { RenderTopShortcuts } from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
+import EmailModal, { toggleEmailModal } from './modals/EmailModalComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
 import PrivacyPolicy from './pages/PrivacyPolicyComponent';
 
@@ -34,10 +35,12 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            isEmailModalOpen: false,
             isCartModalOpen: false,
             cart: [],
             numItemsInCart: 0,
         }
+        this.toggleEmailModal = toggleEmailModal.bind(this);
         this.toggleCartModal = toggleCartModal.bind(this);
         this.RenderTopShortcuts = RenderTopShortcuts.bind(this);
         this.findIndex = findIndex.bind(this);
@@ -51,6 +54,7 @@ class Main extends Component {
         this.combineCartObjects = combineCartObjects.bind(this);
     }
     static defaultProps = {
+        toggleEmailModal: toggleEmailModal,
         toggleCartModal: toggleCartModal,
         RenderTopShortcuts: RenderTopShortcuts,
         findIndex: findIndex,
@@ -66,6 +70,7 @@ class Main extends Component {
         return (
             <div>
                 <Header 
+                    toggleEmailModal={this.toggleEmailModal}
                     toggleCartModal={this.toggleCartModal}
                     RenderTopShortcuts={this.RenderTopShortcuts}
                 />
@@ -99,6 +104,10 @@ class Main extends Component {
                     </CSSTransition>
                 </TransitionGroup>
                 <Footer />
+                <EmailModal
+                    isEmailModalOpen={this.state.isEmailModalOpen}
+                    toggleEmailModal={this.toggleEmailModal}
+                />
                 <CartModal 
                     isCartModalOpen={this.state.isCartModalOpen} 
                     cart={this.state.cart} 
