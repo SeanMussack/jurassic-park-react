@@ -28,7 +28,7 @@ export const IMAGEANDTEXTDATA = [
         src: "/assets/images/thumbnails/visitor-center/headphones.png",
         alt: "A person wearing headphones",
         header: "Assisted Listening Devices, Wheelchairs, & More",
-        href: "/accessibility",
+        headerHref: "/accessibility",
         text: "The Visitor Center is also your one-stop shop for accessibility needs and info, including wheelchairs available for rent, assisted listening devices and noise-cancellation headphones, and more.",
     },
     {
@@ -36,7 +36,7 @@ export const IMAGEANDTEXTDATA = [
         src: "/assets/images/thumbnails/visitor-center/corporate-events.png",
         alt: "A group of people watching a PowerPoint presentation",
         header: "Corporate & Special Events",
-        href: "/groups#corporate-events",
+        headerHref: "/groups#corporate-events",
         text: "Did you know that Jurassic Park is also perfect for corporate retreats and events? Call today to see if the Presentation Room in the Visitor Center is right for your team.",
         isOnRight: true,
     }
