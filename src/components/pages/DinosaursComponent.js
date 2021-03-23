@@ -31,7 +31,7 @@ class RenderDinosaurCard extends Component {
             <Card className={this.props.dinosaur.diet + " bg-light"} key={this.props.dinosaur.key}>
                 <CardHeader onClick={this.toggleCard} className="p-2">
                     <img className="dino-icon my-auto" src={this.props.dinosaur.icon} aria-hidden="true"/>
-                    <h3 className="my-auto">
+                    <h3 className="my-auto pl-5">
                         {this.props.dinosaur.name}
                         <i className={(this.state.isCardOpen ? "fa fa-minus" : "fa fa-plus") + " d-none d-sm-block"} aria-hidden="true"></i>
                     </h3>
