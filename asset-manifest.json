@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/jurassic-park-react/static/css/main.24e51e42.chunk.css",
-    "main.js": "/jurassic-park-react/static/js/main.dfe6c494.chunk.js",
-    "main.js.map": "/jurassic-park-react/static/js/main.dfe6c494.chunk.js.map",
-    "runtime-main.js": "/jurassic-park-react/static/js/runtime-main.0a023885.js",
-    "runtime-main.js.map": "/jurassic-park-react/static/js/runtime-main.0a023885.js.map",
+    "main.js": "/jurassic-park-react/static/js/main.5ec006ca.chunk.js",
+    "main.js.map": "/jurassic-park-react/static/js/main.5ec006ca.chunk.js.map",
+    "runtime-main.js": "/jurassic-park-react/static/js/runtime-main.a1d172fb.js",
+    "runtime-main.js.map": "/jurassic-park-react/static/js/runtime-main.a1d172fb.js.map",
     "static/css/2.bfa6f4f9.chunk.css": "/jurassic-park-react/static/css/2.bfa6f4f9.chunk.css",
-    "static/js/2.c4ec693c.chunk.js": "/jurassic-park-react/static/js/2.c4ec693c.chunk.js",
-    "static/js/2.c4ec693c.chunk.js.map": "/jurassic-park-react/static/js/2.c4ec693c.chunk.js.map",
-    "static/js/3.968d823a.chunk.js": "/jurassic-park-react/static/js/3.968d823a.chunk.js",
-    "static/js/3.968d823a.chunk.js.map": "/jurassic-park-react/static/js/3.968d823a.chunk.js.map",
+    "static/js/2.26d2f32a.chunk.js": "/jurassic-park-react/static/js/2.26d2f32a.chunk.js",
+    "static/js/2.26d2f32a.chunk.js.map": "/jurassic-park-react/static/js/2.26d2f32a.chunk.js.map",
+    "static/js/3.0b864eec.chunk.js": "/jurassic-park-react/static/js/3.0b864eec.chunk.js",
+    "static/js/3.0b864eec.chunk.js.map": "/jurassic-park-react/static/js/3.0b864eec.chunk.js.map",
     "index.html": "/jurassic-park-react/index.html",
     "static/css/2.bfa6f4f9.chunk.css.map": "/jurassic-park-react/static/css/2.bfa6f4f9.chunk.css.map",
     "static/css/main.24e51e42.chunk.css.map": "/jurassic-park-react/static/css/main.24e51e42.chunk.css.map",
-    "static/js/2.c4ec693c.chunk.js.LICENSE.txt": "/jurassic-park-react/static/js/2.c4ec693c.chunk.js.LICENSE.txt",
+    "static/js/2.26d2f32a.chunk.js.LICENSE.txt": "/jurassic-park-react/static/js/2.26d2f32a.chunk.js.LICENSE.txt",
     "static/media/all.css": "/jurassic-park-react/static/media/fa-solid-900.f4f93856.woff",
     "static/media/index.css": "/jurassic-park-react/static/media/open-sans-latin-800italic.b5bc2661.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.0a023885.js",
+    "static/js/runtime-main.a1d172fb.js",
     "static/css/2.bfa6f4f9.chunk.css",
-    "static/js/2.c4ec693c.chunk.js",
+    "static/js/2.26d2f32a.chunk.js",
     "static/css/main.24e51e42.chunk.css",
-    "static/js/main.dfe6c494.chunk.js"
+    "static/js/main.5ec006ca.chunk.js"
   ]
 }
