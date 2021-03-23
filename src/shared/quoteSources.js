@@ -10,7 +10,7 @@ export const QUOTESOURCES = [
         title: "Chief Genetic Engineer"
     },
     {
-        name: "",
+        name: "Mr. DNA",
         image: "/assets/images/talking-heads/mr-dna.png",
     }
 ]

@@ -15,6 +15,7 @@ import Jobs from './pages/JobsComponent';
 import FAQ from './pages/FAQComponent';
 import IslandTour from './pages/IslandTourComponent';
 import Laboratory from "./pages/LaboratoryComponent";
+import ShowcaseTheater from './pages/ShowcaseTheaterComponent';
 import Cafe from "./pages/CafeComponent";
 import GiftShop from './pages/GiftShopComponent';
 import Dinosaurs from './pages/DinosaursComponent';
@@ -73,23 +74,24 @@ class Main extends Component {
                         <Switch>
                             <Route exact path='/' component={Home} />
                             <Route path='/home' component={Home} />
-                            <Route path='/calendar-and-hours' render={() => <Calendar/>} />
-                            <Route path='/getting-here' render={() => <GettingHere/>} />
+                            <Route path='/calendar-and-hours' component={Calendar} />
+                            <Route path='/getting-here' component={GettingHere} />
                             <Route path='/accessibility' component={Accessibility} />
-                            <Route path='/jobs' render={() => <Jobs/>} />
-                            <Route path='/faq' render={() => <FAQ/>} />
+                            <Route path='/jobs' component={Jobs} />
+                            <Route path='/faq' component={FAQ} />
                             <Route path='/island-tour' component={IslandTour} />
-                            <Route path='/laboratory' render={() => <Laboratory/>} />
+                            <Route path='/laboratory' component={Laboratory} />
+                            <Route path='/showcase-theater' component={ShowcaseTheater} />
                             <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
                             <Route path='/gift-shop' component={GiftShop} />
                             <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
-                            <Route path='/visitor-center' render={() => <VisitorCenter/>} />
+                            <Route path='/visitor-center' component={VisitorCenter} />
                             <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
                             <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
                             <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
                             <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
                             <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
-                            <Route path='/birthday-parties' render={() => <BirthdayParties />} />
+                            <Route path='/birthday-parties' component={BirthdayParties} />
                             <Route path='/privacy-policy' component={PrivacyPolicy} />
                             <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
                             <Redirect to='/404' />
