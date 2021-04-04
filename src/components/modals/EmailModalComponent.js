@@ -18,43 +18,41 @@ class EmailModal extends Component {
             >
                 <ModalHeader
                     toggle={this.props.toggleEmailModal}
-                    className="bg-primary"
+                    className="bg-warning"
                 >
                     Email Sign-Up
                 </ModalHeader>
                 <ModalBody>
                     <Container fluid>
-                        <Form onSubmit={this.handleSubmit}>
-                            <FormGroup>
-                                <Row>
-                                    <Label
-                                        className="sr-only"
-                                        htmlFor="email"
-                                    >
-                                        Email address
-                                    </Label>
-                                    <Input
-                                        id="email"
-                                        placeholder="Enter email"
-                                    />
-                                </Row>
-                                <br/>
-                                <FormGroup check row>
-                                    <Input
-                                        id="emailCheckbox"
-                                        type="checkbox"
-                                        name="13 or older"
-                                    />
-                                    {' '}
-                                    <Label
-                                        htmlFor="emailCheckbox"
-                                    >
-                                        I am at least 13 years old
-                                    </Label>
-                                </FormGroup>
-                            </FormGroup>
+                        <Form >
                             <FormGroup row>
-                                <Button type="submit" color="primary" block>
+                                <Label
+                                    className="sr-only"
+                                    htmlFor="email"
+                                >
+                                    Email address
+                                </Label>
+                                <Input
+                                    id="email"
+                                    placeholder="Enter email"
+                                />
+                            </FormGroup>
+                            <FormGroup check row>
+                                <Input
+                                    id="emailCheckbox"
+                                    type="checkbox"
+                                    name="13 or older"
+                                />
+                                {' '}
+                                <Label
+                                    htmlFor="emailCheckbox"
+                                >
+                                    I am at least 13 years old
+                                </Label>
+                            </FormGroup>
+                            <br/>
+                            <FormGroup row>
+                                <Button type="submit" color="danger" block>
                                     Sign up
                                 </Button>
                             </FormGroup>

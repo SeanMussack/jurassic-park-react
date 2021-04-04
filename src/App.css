@@ -596,3 +596,10 @@ div .download-park-map-button {
   text-align: center;
   padding: auto;
 }
+.modal-body .btn-danger {
+  background-color: rgb(200,18,0);
+  color: white;
+}
+.modal-body .row .btn-danger:active {
+  background-color: rgb(169,9,0);
+}

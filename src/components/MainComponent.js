@@ -7,6 +7,7 @@ import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import EmailModal, { toggleEmailModal } from './modals/EmailModalComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
+import PromoModal, { togglePromoModal } from './modals/PromoModalComponent'
 import PrivacyPolicy from './pages/PrivacyPolicyComponent';
 import ScrollToTop from './ScrollToTop';
 
@@ -38,11 +39,13 @@ class Main extends Component {
         this.state = {
             isEmailModalOpen: false,
             isCartModalOpen: false,
+            isPromoModalOpen: false,
             cart: [],
             numItemsInCart: 0,
         }
         this.toggleEmailModal = toggleEmailModal.bind(this);
         this.toggleCartModal = toggleCartModal.bind(this);
+        this.togglePromoModal = togglePromoModal.bind(this);
         this.RenderTopShortcuts = RenderTopShortcuts.bind(this);
         this.findIndex = findIndex.bind(this);
         this.increaseQuantity = increaseQuantity.bind(this);
@@ -57,6 +60,7 @@ class Main extends Component {
     static defaultProps = {
         toggleEmailModal: toggleEmailModal,
         toggleCartModal: toggleCartModal,
+        togglePromoModal: togglePromoModal,
         RenderTopShortcuts: RenderTopShortcuts,
         findIndex: findIndex,
         increaseQuantity: increaseQuantity,
@@ -73,6 +77,7 @@ class Main extends Component {
                 <Header 
                     toggleEmailModal={this.toggleEmailModal}
                     toggleCartModal={this.toggleCartModal}
+                    togglePromoModal={this.togglePromoModal}
                     RenderTopShortcuts={this.RenderTopShortcuts}
                 />
                 <TransitionGroup>
@@ -118,6 +123,10 @@ class Main extends Component {
                     removeFromCart={this.removeFromCart}
                     addToCart={this.addToCart}
                     decrementQuantity={this.decrementQuantity}
+                />
+                <PromoModal
+                    isPromoModalOpen={this.state.isPromoModalOpen}
+                    togglePromoModal={this.togglePromoModal}
                 />
             </React.Fragment>
         );
