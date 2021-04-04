@@ -9,8 +9,7 @@ class GenCard extends Component {
     }
     render() {
         return (
-            <Card 
-                id={this.props.cardData.id}
+            <Card
                 className={this.props.cardType + " d-flex flex-wrap mx-auto"} 
                 key={this.props.cardData.key}
             >

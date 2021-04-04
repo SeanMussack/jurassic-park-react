@@ -150,7 +150,7 @@ export const CARTITEMS = [
         name: "Corporate & Special Events",
         icon: "fa fa-chart-bar",
         text: "With catered dining, special teambuilding opportunities, and access to the Presentation Room in the ",
-        href: "../things-to-see/visitor-center.html",
+        href: "/visitor-center",
         textLink: "Visitor Center",
         text2: ", Jurassic Park has it all. Take advantage of our unique facilities and attractions for your next corporate outing.",
         textTelColumn: "Corporate and special events",

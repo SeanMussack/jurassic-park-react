@@ -252,6 +252,9 @@ h4 {
   margin: 15px;
   max-width: 300px;
 }
+.card h4 {
+  margin-left: 0px;
+}
 .visitor-center-card {
   margin: 10px;
   max-width: 270px;

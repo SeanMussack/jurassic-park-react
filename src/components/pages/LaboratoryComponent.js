@@ -27,7 +27,7 @@ class Laboratory extends Component {
                 </Container>
                 <BannerOfImages bannerOfImages={BANNEROFIMAGES[1]}/>
                 <Container fluid className="px-lg-5">
-                    <Row className="row-content px-lg-5">
+                    <Row id="hatchery" className="row-content px-lg-5">
                         <GenCard cardType="lab-card" cardData={CARDDATA[4]}/>
                         <GenCard cardType="lab-card" cardData={CARDDATA[5]}/>
                         <GenCard cardType="lab-card" cardData={CARDDATA[6]}/>

@@ -47,7 +47,6 @@ export const CARDDATA = [
     },
     {
         key: 6,
-        id: "hatchery",
         src: '/assets/images/thumbnails/laboratory/hatchery.png',
         alt: "A baby Velociraptor hatching out of its egg",
         title: "Witness the Miracle of Birth ",
@@ -56,6 +55,7 @@ export const CARDDATA = [
         text: "Come see the miracle of cloning for your own eyes!",
         text2: "Availability may vary, depending on embryo timing.",
         buttonSrOnly: " about VIP packages",
+        href: "/tickets#VIP",
     },
     {
         key: 7,

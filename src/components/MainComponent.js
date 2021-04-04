@@ -8,6 +8,7 @@ import Home from './pages/HomeComponent';
 import EmailModal, { toggleEmailModal } from './modals/EmailModalComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
 import PrivacyPolicy from './pages/PrivacyPolicyComponent';
+import ScrollToTop from './ScrollToTop';
 
 import Calendar from "./pages/CalendarComponent";
 import GettingHere from './pages/GettingHereComponent';
@@ -68,7 +69,7 @@ class Main extends Component {
     }
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Header 
                     toggleEmailModal={this.toggleEmailModal}
                     toggleCartModal={this.toggleCartModal}
@@ -76,31 +77,33 @@ class Main extends Component {
                 />
                 <TransitionGroup>
                     <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
-                        <Switch>
-                            <Route exact path='/' component={Home} />
-                            <Route path='/home' component={Home} />
-                            <Route path='/calendar-and-hours' component={Calendar} />
-                            <Route path='/getting-here' component={GettingHere} />
-                            <Route path='/accessibility' component={Accessibility} />
-                            <Route path='/jobs' component={Jobs} />
-                            <Route path='/faq' component={FAQ} />
-                            <Route path='/island-tour' component={IslandTour} />
-                            <Route path='/laboratory' component={Laboratory} />
-                            <Route path='/showcase-theater' component={ShowcaseTheater} />
-                            <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
-                            <Route path='/gift-shop' component={GiftShop} />
-                            <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
-                            <Route path='/visitor-center' component={VisitorCenter} />
-                            <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
-                            <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
-                            <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
-                            <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
-                            <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
-                            <Route path='/birthday-parties' component={BirthdayParties} />
-                            <Route path='/privacy-policy' component={PrivacyPolicy} />
-                            <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
-                            <Redirect to='/404' />
-                        </Switch>
+                        <ScrollToTop>
+                            <Switch>
+                                <Route exact path='/' component={Home} />
+                                <Route path='/home' component={Home} />
+                                <Route path='/calendar-and-hours' component={Calendar} />
+                                <Route path='/getting-here' component={GettingHere} />
+                                <Route path='/accessibility' component={Accessibility} />
+                                <Route path='/jobs' component={Jobs} />
+                                <Route path='/faq' component={FAQ} />
+                                <Route path='/island-tour' component={IslandTour} />
+                                <Route path='/laboratory' component={Laboratory} />
+                                <Route path='/showcase-theater' component={ShowcaseTheater} />
+                                <Route path='/cafe' render={() => <Cafe cafeMenu={CAFEMENU} />} />
+                                <Route path='/gift-shop' component={GiftShop} />
+                                <Route path='/dinosaurs' render={() => <Dinosaurs dinosaurs={DINOSAURS} />} />
+                                <Route path='/visitor-center' component={VisitorCenter} />
+                                <Route path='/park-gate' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[1]} />} />
+                                <Route path='/waterfalls' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[0]} />} />
+                                <Route path='/tickets' render={() => <Tickets addToCart={this.addToCart} />} />
+                                <Route path='/season-passes' render={() => <SeasonPasses addToCart={this.addToCart} />} />
+                                <Route path='/groups' render={() => <Groups addToCart={this.addToCart} />} />
+                                <Route path='/birthday-parties' component={BirthdayParties} />
+                                <Route path='/privacy-policy' component={PrivacyPolicy} />
+                                <Route path='/404' render={() => <BigPicPage bigPicData={BIGPICPAGEDATA[2]} />} />
+                                <Redirect to='/404' />
+                            </Switch>
+                        </ScrollToTop>
                     </CSSTransition>
                 </TransitionGroup>
                 <Footer />
@@ -116,7 +119,7 @@ class Main extends Component {
                     addToCart={this.addToCart}
                     decrementQuantity={this.decrementQuantity}
                 />
-            </div>
+            </React.Fragment>
         );
     }
 }

@@ -78,7 +78,7 @@ class CartItem extends Component {
     }
     render() {
         return (
-            <Row className="row-content" key={this.props.cartItem.key}>
+            <Row className="row-content" key={this.props.cartItem.key} id={this.props.cartItem.id}>
                 <Col md="8" lg={{size: 7, offset: 1}}>
                     <h5>
                         {(this.props.cartItem.icon)
