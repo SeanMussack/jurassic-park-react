@@ -121,7 +121,6 @@ export function RenderTopShortcuts({toggleEmailModal, toggleCartModal}) {
             <Link to="./tickets"><i className="fa fa-ticket-alt fa-md" aria-hidden="true"></i>Tickets</Link>
             <Link to="./calendar-and-hours"><i className="fa fa-calendar-alt fa-md" aria-hidden="true"></i>Calendar<span className="d-none d-md-inline"> & Hours</span></Link>
             <Link to="./jobs"><i className="fa fa-briefcase fa-md" aria-hidden="true"></i>Jobs</Link>
-            <a href="#" data-toggle="modal" data-target="#newsletterModal"><i className="fa fa-envelope fa-md" aria-hidden="true"></i>Email<span className="d-none d-md-inline"> Sign-up</span></a>
             <Button onClick={toggleEmailModal} color="link">
                 <i className="fa fa-envelope fa-md" aria-hidden="true"></i>
                 Email<span className="d-none d-md-inline"> Sign-up</span>
