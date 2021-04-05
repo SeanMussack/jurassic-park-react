@@ -7,11 +7,13 @@ import Footer from './FooterComponent';
 import Home from './pages/HomeComponent';
 import EmailModal, { toggleEmailModal } from './modals/EmailModalComponent';
 import CartModal, { toggleCartModal, findIndex, increaseQuantity, decrementQuantity, addToCart, removeFromCart, getCartObjectByKey, checkToCombine, combineCartObjects } from './modals/CartModalComponent';
-import PromoModal, { togglePromoModal } from './modals/PromoModalComponent'
+import PromoModal, { togglePromoModal } from './modals/PromoModalComponent';
+import ParkMapModal, { toggleParkMapModal } from './modals/ParkMapModalComponent';
 import PrivacyPolicy from './pages/PrivacyPolicyComponent';
 import ScrollToTop from './ScrollToTop';
 
 import Calendar from "./pages/CalendarComponent";
+import ParkMap from './pages/ParkMapComponent';
 import GettingHere from './pages/GettingHereComponent';
 import Accessibility from './pages/AccessibilityComponent';
 import Jobs from './pages/JobsComponent';
@@ -40,12 +42,14 @@ class Main extends Component {
             isEmailModalOpen: false,
             isCartModalOpen: false,
             isPromoModalOpen: false,
+            isParkMapModalOpen: false,
             cart: [],
             numItemsInCart: 0,
         }
         this.toggleEmailModal = toggleEmailModal.bind(this);
         this.toggleCartModal = toggleCartModal.bind(this);
         this.togglePromoModal = togglePromoModal.bind(this);
+        this.toggleParkMapModal = toggleParkMapModal.bind(this);
         this.RenderTopShortcuts = RenderTopShortcuts.bind(this);
         this.findIndex = findIndex.bind(this);
         this.increaseQuantity = increaseQuantity.bind(this);
@@ -61,6 +65,7 @@ class Main extends Component {
         toggleEmailModal: toggleEmailModal,
         toggleCartModal: toggleCartModal,
         togglePromoModal: togglePromoModal,
+        toggleParkMapModal: toggleParkMapModal,
         RenderTopShortcuts: RenderTopShortcuts,
         findIndex: findIndex,
         increaseQuantity: increaseQuantity,
@@ -87,6 +92,7 @@ class Main extends Component {
                                 <Route exact path='/' component={Home} />
                                 <Route path='/home' component={Home} />
                                 <Route path='/calendar-and-hours' component={Calendar} />
+                                <Route path='/park-map' render={() => <ParkMap toggleParkMapModal={this.toggleParkMapModal}/>} />
                                 <Route path='/getting-here' component={GettingHere} />
                                 <Route path='/accessibility' component={Accessibility} />
                                 <Route path='/jobs' component={Jobs} />
@@ -127,6 +133,10 @@ class Main extends Component {
                 <PromoModal
                     isPromoModalOpen={this.state.isPromoModalOpen}
                     togglePromoModal={this.togglePromoModal}
+                />
+                <ParkMapModal
+                    isParkMapModalOpen={this.state.isParkMapModalOpen}
+                    toggleParkMapModal={this.toggleParkMapModal}
                 />
             </React.Fragment>
         );

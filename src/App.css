@@ -563,7 +563,7 @@ div .download-park-map-button {
 }
 
 /*styles that apply to modals */
-#parkMapModal .modal-dialog {
+#parkMapModal {
   min-width: fit-content;
   max-width: max-content;
   height: fit-content;

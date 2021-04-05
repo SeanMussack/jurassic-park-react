@@ -15,7 +15,7 @@ function ScrollToTop({ history, children }) {
                 if (element) {
                     setTimeout(() => element.scrollIntoView(), 0);
                 } else {
-                    setTimeout(scrollToSection, 100);
+                    setTimeout(scrollToSection, 200);
                 }
             };
             scrollToSection();
