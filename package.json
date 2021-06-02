@@ -1,7 +1,7 @@
 {
   "name": "jurassic-park-react",
   "version": "1.0.0",
-  "homepage": "https://seanmussack.github.io/jurassic-park-react",
+  "homepage": "https://seanmussack.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@testing-library/jest-dom": "^5.11.4",
